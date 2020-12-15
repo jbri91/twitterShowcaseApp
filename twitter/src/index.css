@@ -7,8 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(./twitterBackground.jpg)
-  
+    background-image: url(./twitterBackground.jpg);
 }
 
 code {
