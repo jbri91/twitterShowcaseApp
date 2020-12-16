@@ -1,9 +1,9 @@
 body {
 
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    /* background-size: auto;
+    background-repeat: no-repeat; */
     background-image: url(./twitterBackground.jpg);
-    max-width: 100%;
-    max-height: auto;
+    /* max-width: 100%;
+    max-height: auto; */
 }
