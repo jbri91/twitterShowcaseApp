@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { NavLink } from 'react-router-dom'
 
 function NavigationBar()  {
     return (
@@ -11,13 +12,13 @@ function NavigationBar()  {
       <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="navbar-nav ml-auto">
               <li className="navbar-item">
-                  <a href="#homePage" className="nav-link">Homepage</a>
+                  <NavLink to='/' className="nav-link">Homepage</NavLink>
+              </li>
+              <li  className="navbar-item">
+                  <NavLink to='/search'  className="nav-link">Search</NavLink>
               </li>
               <li className="navbar-item">
-                  <a href="#search" className="nav-link">Search</a>
-              </li>
-              <li className="navbar-item">
-                  <a href="#random" className="nav-link">Random</a>
+                  <NavLink to='/Random' className="nav-link">Random</NavLink>
               </li>
           </ul>
       </div>
