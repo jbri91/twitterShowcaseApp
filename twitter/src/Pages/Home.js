@@ -1,12 +1,10 @@
 import React from "react";
 import TwitterCard from "../components/TwitterCard";
-import TransparentBox from "./TransparentBox";
 
 function Home() {
   const cardStyle = {
-    padding: "250px",
     display: "flex",
-    paddingTop: "30px",
+    paddingTop: "200px",
     justifyContent: "center",
   };
 

@@ -17,7 +17,6 @@ function Random() {
       <TwitterCard />
       <TwitterCard />
       <TwitterCard />
-      <TwitterCard />
     </div>
   );
 }
