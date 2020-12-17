@@ -8,9 +8,9 @@ import TransparentBox from "./components/TransparentBox";
 function App() {
   return (
     <Router>
-    <div className="App" >
-      <Navigationbar />
-      <TransparentBox />
+     <Navigationbar />
+     <TransparentBox />
+      <div className='main'>
     <Switch>
     <Route path='/' component={Random} />
     <Route path='/search' component={Search} />
