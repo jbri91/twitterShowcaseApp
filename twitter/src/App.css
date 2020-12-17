@@ -1,5 +1,5 @@
 .home {
-  background-image: url(./twitterBackground.jpg);
+  background-image: url(../src/Images/twitterBackground.jpg);
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -7,7 +7,7 @@
 }
 
 .search {
-  background-image: url(./laptopTwitterBg.jpg);
+  background-image: url(../src/Images/laptopTwitterBg.jpg);
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -15,7 +15,7 @@
 }
 
 .random {
-  background-image: url(./tweetTweet.jpg);
+  background-image: url(../src/Images/tweetTweet.jpg);
   height: 100vh;
   background-size: cover;
   background-position: center;
