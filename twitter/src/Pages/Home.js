@@ -1,14 +1,22 @@
-import React from 'react'
-import TransparentBox from './TransparentBox'
-
-
+import React from "react";
+import TwitterCard from "../components/TwitterCard";
+import TransparentBox from "./TransparentBox";
 
 function Home() {
-    return(
-        <div className='home'>
-            <TransparentBox />
-        </div>
-    )
+  const cardStyle = {
+    padding: "250px",
+    display: "flex",
+    paddingTop: "30px",
+    justifyContent: "center",
+  };
+
+  return (
+    <div className="home">
+      <div style={cardStyle}>
+        <TwitterCard />
+      </div>
+    </div>
+  );
 }
 
-export default Home
+export default Home;

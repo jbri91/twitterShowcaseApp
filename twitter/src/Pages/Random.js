@@ -2,19 +2,17 @@ import React from "react";
 import TwitterCard from "../components/TwitterCard";
 
 function Random() {
-   const cardStyle ={display: "flex",
+  const cardStyle = {
+    display: "flex",
     flexWrap: "wrap",
     paddingTop: "30px",
     justifyContent: "space-around",
     alignItems: "center",
-    flexDirection: "row",}
-
+    flexDirection: "row",
+  };
 
   return (
-    <div
-      className="random"
-      style={cardStyle}
-    >
+    <div className="random" style={cardStyle}>
       <TwitterCard />
       <TwitterCard />
       <TwitterCard />
