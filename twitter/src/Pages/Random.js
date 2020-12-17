@@ -4,7 +4,7 @@ import React from 'react'
 
 function Random() {
     return(
-        <div>
+        <div className="random">
         <p>Random</p>
         {console.log('Random')}
         </div>

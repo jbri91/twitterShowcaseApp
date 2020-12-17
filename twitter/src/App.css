@@ -14,6 +14,14 @@
   background-repeat: no-repeat;
 }
 
+.random {
+  background-image: url(./tweetTweet.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 div.transboxBg {
   text-align: center;
   display: flex;
