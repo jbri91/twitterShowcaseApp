@@ -18,7 +18,7 @@ function NavigationBar()  {
                   <NavLink to='/search'  className="nav-link">Search</NavLink>
               </li>
               <li className="navbar-item">
-                  <NavLink to='/Random' className="nav-link">Random</NavLink>
+                  <NavLink to='/random' className="nav-link">Random</NavLink>
               </li>
           </ul>
       </div>
