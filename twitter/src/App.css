@@ -23,15 +23,15 @@
 }
 
 div.transboxBg {
-  text-align: center;
   display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ffffff;
   border: 1px solid black;
   opacity: 0.6;
 }
 
 div.transbox p {
-  /* margin: 0%; */
   font-weight: bold;
   color: #000000;
 }

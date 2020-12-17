@@ -1,14 +1,10 @@
-import React from 'react'
-
-
+import React from "react";
 
 function Random() {
-    return(
-        <div className="random">
-        <p>Random</p>
-        {console.log('Random')}
-        </div>
-    )
+  return (
+    <div className="random">
+    </div>
+  );
 }
 
-export default Random
+export default Random;

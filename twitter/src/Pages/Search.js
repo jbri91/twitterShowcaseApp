@@ -4,9 +4,9 @@ import React from 'react'
 function Search() {
     return(
         <div className='search'>
-        <p>search</p>
-        {console.log('Search')}
-        </div>  )
+      <input type='text' placeholder='Search for User or Tweet'/> 
+        </div>  
+)
 }
 
 export default Search
