@@ -11,14 +11,13 @@ function App() {
   return (
     <BrowserRouter>
      <Navigationbar />
-     <TransparentBox />
-      <div className='main'>
+     <TransparentBox />                                                                                          
+     
     <Switch>
     <Route path='/' component={Home} exact/>
     <Route path='/random' component={Random} />
     <Route path='/search' component={Search} />
     </Switch>
-    </div>
     </BrowserRouter>
   );
 }
