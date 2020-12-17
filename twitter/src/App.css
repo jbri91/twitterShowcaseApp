@@ -1,5 +1,13 @@
-.main {
+.home {
   background-image: url(./twitterBackground.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.search {
+  background-image: url(./laptopTwitterBg.jpg);
   height: 100vh;
   background-size: cover;
   background-position: center;

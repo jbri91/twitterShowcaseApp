@@ -3,7 +3,7 @@ import React from 'react'
 
 function Search() {
     return(
-        <div>
+        <div className='search'>
         <p>search</p>
         {console.log('Search')}
         </div>  )

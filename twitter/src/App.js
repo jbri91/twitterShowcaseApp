@@ -11,8 +11,7 @@ function App() {
   return (
     <BrowserRouter>
      <Navigationbar />
-     <TransparentBox />                                                                                          
-     
+     <TransparentBox />
     <Switch>
     <Route path='/' component={Home} exact/>
     <Route path='/random' component={Random} />
