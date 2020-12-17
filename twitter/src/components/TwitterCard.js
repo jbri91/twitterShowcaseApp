@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap";
 function TwitterCard() {
   return (
     <div>
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "18rem", margin: '35px' }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
           <Card.Title>Card Title</Card.Title>
