@@ -13,7 +13,7 @@ function TwitterCard() {
   return (
     <div>
       <Card style={{ width: "18rem", margin: "35px" }}>
-        <Card.Img variant="top" src={CardImage} />
+        
         <Card.Body>
           <Card.Title style={{fontSize:'15px', fontWeight:'bolder'}}>Playstation <img alt="blue check" variant="top" src={BlueCheck}/><img alt="setting" variant="top" src={Settings} style={{marginLeft:'130px'}} /><p style={{fontSize:'15px', color:'gray'}}>@Playstation</p></Card.Title>
           <Card.Text>
@@ -22,9 +22,10 @@ function TwitterCard() {
             #BlackOpsColdWar Free Access Week, starting on December 17:
             https://bit.ly/BOCWFreeTrial
           </Card.Text>
+          <Card.Img variant="top" src={CardImage} style={{borderRadius: '10%'}} />
           <div
             className="twitterIcons"
-            style={{ display: "flex", justifyContent: "space-between" }}
+            style={{ display: "flex", justifyContent: "space-between", marginTop: '10px' }}
           >
             <img alt='comment' variant="top" src={Comment} />367
             <img alt='retweet' variant="top" src={Retweet} />3K

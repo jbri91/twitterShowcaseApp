@@ -19,7 +19,7 @@ function Home() {
       <div style={cardStyle}>
         <div>
           <Card style={{ width: "18rem", margin: "35px" }}>
-            <Card.Img variant="top" src={CoverImage} />
+            
             <Card.Body>
               <div style={{ justifyContent: "flex-start" }}>
                 <Card.Title style={{ fontSize: "15px", fontWeight: "bolder" }}>
@@ -34,15 +34,16 @@ function Home() {
                   <p style={{ fontSize: "15px", color: "gray" }}>@JBri91</p>
                 </Card.Title>
               </div>
-              <Card.Text>
+              <Card.Text style={{fontSize:'15px'}}>
                 It is finally live right now! You can finally search for your favorite Twitter
                 accounts by going to the Search page! You can even check out MY
                 favorite Twitter accounts which will show you their random
                 tweets! Give it a go! This was all made possible by Twitter's API!
               </Card.Text>
+              <Card.Img variant="top" src={CoverImage} style={{borderRadius: '10%'}} />
               <div
                 className="twitterIcons"
-                style={{ display: "flex", justifyContent: "space-between" }}
+                style={{ display: "flex", justifyContent: "space-between", marginTop:'10px' }}
               >
                 <img alt="comment" variant="top" src={Comment} />
                 1.2K
