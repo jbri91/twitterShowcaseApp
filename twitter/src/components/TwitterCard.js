@@ -4,6 +4,7 @@ import CardImage from "../Images/TwitterCardImage.jpg";
 import HeartImage from "../Images/Heart.png";
 import Retweet from "../Images/Retweet.png";
 import Comment from "../Images/Comment.png";
+import Share from '../Images/Share.png'
 
 function TwitterCard() {
   return (
@@ -18,14 +19,15 @@ function TwitterCard() {
             #BlackOpsColdWar Free Access Week, starting on December 17:
             https://bit.ly/BOCWFreeTrial
           </Card.Text>
-          <container
+          <div
             className="twitterIcons"
-            style={{ display: "flex", justifyContent: "space-around" }}
+            style={{ display: "flex", justifyContent: "space-between" }}
           >
-            <img variant="top" src={Comment} />
-            <img variant="top" src={Retweet} />
-            <img variant="top" src={HeartImage} />
-          </container>
+            <img alt='comment' variant="top" src={Comment} />367
+            <img alt='retweet' variant="top" src={Retweet} />3K
+            <img alt='heart' variant="top" src={HeartImage} />12.1K
+            <img alt="share" variant="top" src={Share} />
+          </div>
         </Card.Body>
       </Card>
     </div>
