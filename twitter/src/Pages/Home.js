@@ -45,9 +45,9 @@ function Home() {
                 style={{ display: "flex", justifyContent: "space-between" }}
               >
                 <img alt="comment" variant="top" src={Comment} />
-                367
+                1.2K
                 <img alt="retweet" variant="top" src={Retweet} />
-                3K
+                5K
                 <img alt="heart" variant="top" src={HeartImage} />
                 12.1K
                 <img alt="share" variant="top" src={Share} />
