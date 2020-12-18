@@ -5,7 +5,7 @@ function Search() {
   const cardStyle = {
     display: "flex",
     flexWrap: "wrap",
-    paddingTop: '80px',
+    paddingTop: "80px",
     justifyContent: "space-around",
     alignItems: "center",
     flexDirection: "row",
@@ -17,7 +17,6 @@ function Search() {
         <TwitterCard />
         <TwitterCard />
         <TwitterCard />
-        
       </div>
     </div>
   );
