@@ -4,9 +4,9 @@ import HeartImage from "../Images/Heart.png";
 import Retweet from "../Images/Retweet.png";
 import Comment from "../Images/Comment.png";
 import CardImage from "../Images/TwitterCardImage.jpg";
-import BlueCheck from '../Images/BlueCheck.png'
-import Share from '../Images/Share.png'
-import Settings from '../Images/Settings.png'
+import BlueCheck from "../Images/BlueCheck.png";
+import Share from "../Images/Share.png";
+import Settings from "../Images/Settings.png";
 
 function Home() {
   const cardStyle = {
@@ -21,10 +21,24 @@ function Home() {
           <Card style={{ width: "18rem", margin: "35px" }}>
             <Card.Img variant="top" src={CardImage} />
             <Card.Body>
-              <div style={{ justifyContent:'flex-start'}}>
-              <Card.Title style={{fontSize:'15px', fontWeight:'bolder'}}>Johnny Briones <img alt="blue check" variant="top" src={BlueCheck}/> <img alt="setting" variant="top" src={Settings} style={{marginLeft:'95px'}} /><p style={{fontSize:'15px', color:'gray'}}>@JBri91</p></Card.Title>
+              <div style={{ justifyContent: "flex-start" }}>
+                <Card.Title style={{ fontSize: "15px", fontWeight: "bolder" }}>
+                  Johnny Briones{" "}
+                  <img alt="blue check" variant="top" src={BlueCheck} />{" "}
+                  <img
+                    alt="setting"
+                    variant="top"
+                    src={Settings}
+                    style={{ marginLeft: "95px" }}
+                  />
+                  <p style={{ fontSize: "15px", color: "gray" }}>@JBri91</p>
+                </Card.Title>
               </div>
               <Card.Text>
+                It is finally live right now! You can finally search for your favorite Twitter
+                accounts by going to the Search page! You can even check out MY
+                favorite Twitter accounts which will show you their random
+                tweets! Give it a go! This was all made possible by Twitter's API!
               </Card.Text>
               <div
                 className="twitterIcons"
