@@ -5,6 +5,9 @@ import HeartImage from "../Images/Heart.png";
 import Retweet from "../Images/Retweet.png";
 import Comment from "../Images/Comment.png";
 import Share from '../Images/Share.png'
+import Settings from '../Images/Settings.png'
+import BlueCheck from '../Images/BlueCheck.png'
+
 
 function TwitterCard() {
   return (
@@ -12,7 +15,7 @@ function TwitterCard() {
       <Card style={{ width: "18rem", margin: "35px" }}>
         <Card.Img variant="top" src={CardImage} />
         <Card.Body>
-          <Card.Title>Playstation</Card.Title>
+          <Card.Title style={{fontSize:'15px', fontWeight:'bolder'}}>Playstation <img alt="blue check" variant="top" src={BlueCheck}/><img alt="setting" variant="top" src={Settings} style={{marginLeft:'130px'}} /><p style={{fontSize:'15px', color:'gray'}}>@Playstation</p></Card.Title>
           <Card.Text>
             Multiplayer maps & modes Collision symbol Nuketown Holiday 24/7
             Collision symbol Prop Hunt Collision symbol Much more Jump into the
