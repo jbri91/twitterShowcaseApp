@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import CardImage from "../Images/TwitterCardImage.jpg";
 import HeartImage from "../Images/Heart.png";
 import Retweet from "../Images/Retweet.png";
