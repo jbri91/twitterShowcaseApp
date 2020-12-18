@@ -6,6 +6,7 @@ import Comment from "../Images/Comment.png";
 import CardImage from "../Images/TwitterCardImage.jpg";
 import BlueCheck from '../Images/BlueCheck.png'
 import Share from '../Images/Share.png'
+import Settings from '../Images/Settings.png'
 
 function Home() {
   const cardStyle = {
@@ -21,7 +22,7 @@ function Home() {
             <Card.Img variant="top" src={CardImage} />
             <Card.Body>
               <div style={{ justifyContent:'flex-start'}}>
-              <Card.Title style={{fontSize:'15px', fontWeight:'bolder'}}>Johnny Briones <img alt="blue check" variant="top" src={BlueCheck} /><p style={{fontSize:'15px', color:'gray'}}>@JBri91</p></Card.Title>
+              <Card.Title style={{fontSize:'15px', fontWeight:'bolder'}}>Johnny Briones <img alt="blue check" variant="top" src={BlueCheck}/> <img alt="setting" variant="top" src={Settings} style={{marginLeft:'95px'}} /><p style={{fontSize:'15px', color:'gray'}}>@JBri91</p></Card.Title>
               </div>
               <Card.Text>
               </Card.Text>
