@@ -3,10 +3,10 @@ import { Card } from "react-bootstrap";
 import HeartImage from "../Images/Heart.png";
 import Retweet from "../Images/Retweet.png";
 import Comment from "../Images/Comment.png";
-import CardImage from "../Images/TwitterCardImage.jpg";
 import BlueCheck from "../Images/BlueCheck.png";
 import Share from "../Images/Share.png";
 import Settings from "../Images/Settings.png";
+import CoverImage from '../Images/Sun.jpg'
 
 function Home() {
   const cardStyle = {
@@ -19,7 +19,7 @@ function Home() {
       <div style={cardStyle}>
         <div>
           <Card style={{ width: "18rem", margin: "35px" }}>
-            <Card.Img variant="top" src={CardImage} />
+            <Card.Img variant="top" src={CoverImage} />
             <Card.Body>
               <div style={{ justifyContent: "flex-start" }}>
                 <Card.Title style={{ fontSize: "15px", fontWeight: "bolder" }}>
