@@ -1,6 +1,9 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import CardImage from '../Images/TwitterCardImage.jpg'
+import CardImage from "../Images/TwitterCardImage.jpg";
+import HeartImage from "../Images/Heart.png";
+import Retweet from "../Images/Retweet.png";
+import Comment from "../Images/Comment.png";
 
 function TwitterCard() {
   return (
@@ -10,16 +13,19 @@ function TwitterCard() {
         <Card.Body>
           <Card.Title>Playstation</Card.Title>
           <Card.Text>
-            Multiplayer maps & modes
-            
-              Collision symbol Nuketown Holiday 24/7
-              Collision symbol Prop Hunt
-              Collision symbol Much more
-            
-              Jump into the #BlackOpsColdWar Free Access Week, starting on
-              December 17: https://bit.ly/BOCWFreeTrial
+            Multiplayer maps & modes Collision symbol Nuketown Holiday 24/7
+            Collision symbol Prop Hunt Collision symbol Much more Jump into the
+            #BlackOpsColdWar Free Access Week, starting on December 17:
+            https://bit.ly/BOCWFreeTrial
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <container
+            className="twitterIcons"
+            style={{ display: "flex", justifyContent: "space-around" }}
+          >
+            <img variant="top" src={Comment} />
+            <img variant="top" src={Retweet} />
+            <img variant="top" src={HeartImage} />
+          </container>
         </Card.Body>
       </Card>
     </div>
