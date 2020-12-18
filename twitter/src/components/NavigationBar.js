@@ -1,11 +1,14 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { NavLink } from 'react-router-dom'
+import UserInput from "./UserInput";
 
 function NavigationBar()  {
     return (
-      <nav className="navbar navbar-light bg-light navbar-expand-lg fixed-top">
+        
+      <nav className="navbar navbar-light bg-light navbar-expand-lg fixed-top"> 
       <a href="#twitter" className="navbar-brand font-weight-bolder">Twitter Showcase App</a>
+       <UserInput />
       <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
           <span className="navbar-toggler-icon"></span>
       </button>

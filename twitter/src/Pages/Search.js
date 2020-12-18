@@ -5,7 +5,7 @@ function Search() {
   const cardStyle = {
     display: "flex",
     flexWrap: "wrap",
-    paddingTop: '30px',
+    paddingTop: '80px',
     justifyContent: "space-around",
     alignItems: "center",
     flexDirection: "row",

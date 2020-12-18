@@ -6,8 +6,9 @@ function UserInput() {
       <input
         style={{
           justifyContent: "center",
-          paddingTop: "50px",
-          textAlign: 'center',
+          paddingTop: "20px",
+          paddingLeft: '25px',
+          paddingRight: '25px', 
         }}
         type="text"
         placeholder="Search for User or Tweet"
