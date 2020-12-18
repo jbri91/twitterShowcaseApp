@@ -12,7 +12,7 @@ import BlueCheck from '../Images/BlueCheck.png'
 function TwitterCard() {
   return (
     <div>
-      <Card style={{ width: "18rem", margin: "35px" }}>
+      <Card style={{ width: "35rem", margin: "35px" }}>
         
         <Card.Body>
           <Card.Title style={{fontSize:'15px', fontWeight:'bolder'}}>Playstation <img alt="blue check" variant="top" src={BlueCheck}/><img alt="setting" variant="top" src={Settings} style={{marginLeft:'130px'}} /><p style={{fontSize:'15px', color:'gray'}}>@Playstation</p></Card.Title>

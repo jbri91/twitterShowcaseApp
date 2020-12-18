@@ -18,7 +18,7 @@ function Home() {
     <div className="home">
       <div style={cardStyle}>
         <div>
-          <Card style={{ width: "18rem", margin: "35px" }}>
+          <Card style={{ width: "35rem", margin: "35px" }}>
             
             <Card.Body>
               <div style={{ justifyContent: "flex-start" }}>
