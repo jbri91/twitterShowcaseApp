@@ -46,6 +46,45 @@ class User(Resource):
                 return user, 200
         return 'User not found', 404
 
+
+class User(Resource):
+    def get(self, userName):
+        for user in users:
+            if (userName == user['userName']):
+                return user, 200
+        return 'User not found', 404
+
+
+class User(Resource):
+    def get(self, tweet):
+        for user in users:
+            if (tweet == user['tweet']):
+                return user, 200
+        return 'User not found', 404
+
+
+class User(Resource):
+    def get(self, comments):
+        for user in users:
+            if (comments == user['comments']):
+                return user, 200
+        return 'User not found', 404
+
+class User(Resource):
+    def get(self, retweets):
+        for user in users:
+            if (retweets == user['retweets']):
+                return user, 200
+        return 'User not found', 404
+
+class User(Resource):
+    def get(self, likes):
+        for user in users:
+            if (likes == user['likes']):
+                return user, 200
+        return 'User not found', 404
+
+
     # def post(self, name):
     #     parser = reqparse.RequestParser()
     #     parser.add_argument('userName')
@@ -90,7 +129,10 @@ class User(Resource):
     #     return '{} is deleted.'.format(name), 200
 
 api.add_resource(User, '/user/<string:name>')
-
+api.add_resource(User, '/user/<string:userName>')
+api.add_resource(User, '/user/<string:tweets>')
+api.add_resource(User, '/user/<string:comments>')
+api.add_resource(User, '/user/<string:likes>')
 app.run(debug=True)
 
 
