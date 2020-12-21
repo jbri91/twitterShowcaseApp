@@ -24,7 +24,6 @@ class UserInput extends React.Component {
   }
 
   render() {
-    console.log(this.state)
   return (
     <div>
       <form value={this.state.value} onSubmit={this.onSubmit} onChange={this.onChange}> 

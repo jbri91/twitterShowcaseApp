@@ -1,3 +1,4 @@
+import React, {useEffect } from 'react'
 import "./App.css";
 import Navigationbar from "./components/NavigationBar";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
@@ -6,6 +7,13 @@ import Random from "./Pages/Random";
 import Search from "./Pages/Search"; 
 
 function App() {
+useEffect(() => {
+  fetch("/user/Playstation").then(
+    response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
+      }, []);
+
   return (
     <BrowserRouter>
       <Navigationbar />

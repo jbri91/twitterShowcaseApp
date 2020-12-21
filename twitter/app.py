@@ -4,6 +4,8 @@ from flask_restful import Api, Resource, reqparse
 app = Flask(__name__)
 api = Api(app)
 
+# @app.route('/app', methods={'GET'})
+
 users =[
     {
     'name': 'MrBeast',
@@ -46,87 +48,8 @@ class User(Resource):
                 return user, 200
         return 'User not found', 404
     
-    # def get(self, userName):
-    #     for user in users:
-    #         if (userName == user['userName']):
-    #             return user, 200
-    #     return 'User not found', 404
-    
-    # def get(self, tweet):
-    #     for user in users:
-    #         if (tweet == user['tweet']):
-    #             return user, 200
-    #     return 'User not found', 404
-        
-    # def get(self, comments):
-    #     for user in users:
-    #         if (comments == user['comments']):
-    #             return user, 200
-    #     return 'User not found', 404
-
-
-    # def get(self, retweets):
-    #     for user in users:
-    #         if (retweets == user['retweets']):
-    #             return user, 200
-    #     return 'User not found', 404
-
-
-    # def get(self, likes):
-    #     for user in users:
-    #         if (likes == user['likes']):
-    #             return user, 200
-    #     return 'User not found', 404
-
-
-    # def post(self, name):
-    #     parser = reqparse.RequestParser()
-    #     parser.add_argument('userName')
-    #     parser.add_argument('tweet')
-    #     args = parser.parse_args()
-
-    #     for user in users:
-    #         if(name == user['name']):
-    #             return 'User with name {} already exists'.format(name), 400
-
-    #     user = {
-    #         'name': name,
-    #         'userName': args['userName'],
-    #         'tweet': args['tweet']
-    #         }
-    #     users.append(user)
-    #     return user, 201
-
-    # def put(self, name):
-    #     parser = reqparse.RequestParser()
-    #     parser.add_argument('userName')
-    #     parser.add_argument('tweet')
-    #     args = parser.parse_args()
-
-    #     for user in users:
-    #         if(name == user['name']):
-    #             user['userName'] = args['userName']
-    #             user['tweet'] = args['tweet']
-    #             return user, 200
-
-    #     user = {
-    #         'name': name,
-    #         'userName': args['userName'],
-    #         'tweet': args['tweet']
-    #     }
-    #     users.append(user)
-    #     return user, 201
-
-    # def delete(self, name):
-    #     global users
-    #     users = [user for user in users if user['name'] != name]
-    #     return '{} is deleted.'.format(name), 200
 
 api.add_resource(User, '/user/<string:name>')
-# api.add_resource(User, '/user/<string:userName>')
-# api.add_resource(User, '/user/<string:tweets>')
-# api.add_resource(User, '/user/<string:comments>')
-# api.add_resource(User, '/user/<string:likes>')
 app.run(debug=True)
 
 
