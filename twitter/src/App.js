@@ -6,9 +6,10 @@ import Home from "./Pages/Home";
 import Random from "./Pages/Random";
 import Search from "./Pages/Search"; 
 
+
 function App() {
 useEffect(() => {
-  fetch("/user/Playstation").then(
+  fetch("http://localhost:5000/user/Playstation").then(
     response => response.json())
     .then(data => console.log(data))
     .catch(error => console.log(error));
