@@ -9,7 +9,7 @@ import Search from "./Pages/Search";
 
 function App() {
 useEffect(() => {
-  fetch("http://localhost:5000/user/Playstation").then(
+  fetch('/user/Playstation').then(
     response => response.json())
     .then(data => console.log(data))
     .catch(error => console.log(error));
