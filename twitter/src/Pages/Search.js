@@ -1,7 +1,7 @@
 import React from "react";
 import TwitterCard from "../components/TwitterCard";
 
-function Search() {
+function Search(props) {
   const cardStyle = {
     display: "flex",
     flexWrap: "wrap",
@@ -13,7 +13,13 @@ function Search() {
   return (
     <div className="search">
       <div style={cardStyle}>
-        <TwitterCard />
+        <TwitterCard
+        name={props.name}
+        userName={props.userName}
+        tweet={props.tweet}
+        comments={props.comments}
+        retweets={props.retweets}
+        likes={props.likes}  />
         <TwitterCard />
         <TwitterCard />
         <TwitterCard />
