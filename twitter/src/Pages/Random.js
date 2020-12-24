@@ -1,7 +1,7 @@
 import React from "react";
 import TwitterCard from "../components/TwitterCard";
 
-function Random() {
+function Random(props) {
   const cardStyle = {
     display: "flex",
     flexWrap: "wrap",
@@ -13,7 +13,15 @@ function Random() {
 
   return (
     <div className="random" style={cardStyle}>
-      <TwitterCard />
+      <TwitterCard 
+      name={props.name}
+      userName={props.userName}
+      tweet={props.tweet}
+      comments={props.comments}
+      retweets={props.retweets}
+      likes={props.likes}
+      image={props.image}
+      key={props.key} />
       <TwitterCard />
       <TwitterCard />
       <TwitterCard />

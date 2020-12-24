@@ -13,13 +13,7 @@ function Search(props) {
   return (
     <div className="search">
       <div style={cardStyle}>
-        <TwitterCard
-        name={props.name}
-        userName={props.userName}
-        tweet={props.tweet}
-        comments={props.comments}
-        retweets={props.retweets}
-        likes={props.likes}  />
+        <TwitterCard />
         <TwitterCard />
         <TwitterCard />
         <TwitterCard />

@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
-
 app = Flask(__name__)
 api = Api(app)
 
@@ -12,6 +11,7 @@ users =[
     'comments': '11.2k',
     'retweets': '908',
     'likes': '46K',
+    'image': '',
     },
     {
     'name': 'Elon Musk',
@@ -20,6 +20,7 @@ users =[
     'comments': '5.5K',
     'retweets': '18.5k',
     'likes': '178.5K',
+    'image': '',
     },
     {
     'name': 'Ninja',
@@ -28,6 +29,7 @@ users =[
     'comments': '552',
     'retweets': '681',
     'likes': '27.6K',
+    'image': '',
     },
     {
     'name': 'Playstation',
@@ -36,6 +38,7 @@ users =[
     'comments': '4K',
     'retweets': '5K',
     'likes': '19.1K',
+    'image': '',
     }
 ]
 

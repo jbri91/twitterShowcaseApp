@@ -11,6 +11,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       tweeter: "",
+      key: Math.floor(Math.random() * 100) + 5,
     };
   }
 
@@ -26,21 +27,28 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <BrowserRouter>
         <Navigationbar />
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/random" component={Random} />
           <Route
-            path="/search"
-            render={() => <Search name={this.state.tweeter.name}
-            userName={this.state.tweeter.userName}
-            tweet={this.state.tweeter.tweet}
-            comments={this.state.tweeter.comments}
-            retweets={this.state.tweeter.retweets}
-            likes={this.state.tweeter.likes} />}
+            path="/random"
+            render={() => (
+              <Random
+                name={this.state.tweeter.name}
+                userName={this.state.tweeter.userName}
+                tweet={this.state.tweeter.tweet}
+                comments={this.state.tweeter.comments}
+                retweets={this.state.tweeter.retweets}
+                likes={this.state.tweeter.likes}
+                image={this.state.tweeter.image}
+                key={this.state.key}
+              />
+            )}
           />
+          <Route path="/search" component={Search} />
         </Switch>
       </BrowserRouter>
     );
