@@ -3,7 +3,6 @@ import TwitterCard from "../components/TwitterCard";
 
 function Random(props) {
   const randomUserCard = [];
-  console.log(props)
   const cardStyle = {
     display: "flex",
     flexWrap: "wrap",
