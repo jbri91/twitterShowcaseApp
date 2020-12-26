@@ -12,7 +12,7 @@ tweets =[
     'retweets': '908',
     'likes': '46K',
     'image': '',
-    'id': 1,
+    'id': '1',
     },
     {
     'name': 'Elon Musk',
@@ -22,7 +22,7 @@ tweets =[
     'retweets': '18.5k',
     'likes': '178.5K',
     'image': '',
-    'id': 2,
+    'id': '2',
     },
     {
     'name': 'Ninja',
@@ -32,7 +32,7 @@ tweets =[
     'retweets': '681',
     'likes': '27.6K',
     'image': '',
-    'id': 3,
+    'id': '3',
     },
     {
     'name': 'Playstation',
@@ -42,7 +42,7 @@ tweets =[
     'retweets': '5K',
     'likes': '19.1K',
     'image': '',
-    'id': 4,
+    'id': '4',
     }
 ]
 
