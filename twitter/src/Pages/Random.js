@@ -16,6 +16,7 @@ function Random(props) {
   for(let i =0; i < props.tweeter.length; i++){
     userCard.push(
     <TwitterCard 
+          key={props.tweeter[i].name}
           name={props.tweeter[i].name}
           userName={props.tweeter[i].userName}
           tweet={props.tweeter[i].tweet}
