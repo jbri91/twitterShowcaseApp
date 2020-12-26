@@ -10,7 +10,7 @@ import BlueCheck from "../Images/BlueCheck.png";
 
 function TwitterCard(props) {
   return (
-    <div>
+    <div key={props.id}>
       <Card style={{ width: "35rem", margin: "35px" }}>
         <Card.Body>
           <Card.Title style={{ fontSize: "15px", fontWeight: "bolder" }}>
