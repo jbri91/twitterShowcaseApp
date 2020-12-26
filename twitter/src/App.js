@@ -6,14 +6,28 @@ import Home from "./Pages/Home";
 import Random from "./Pages/Random";
 import Search from "./Pages/Search";
 
-
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       tweeter: [],
+      value: "",
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  onChange = (e) => {
+    this.setState({
+      value: e.target.value,
+    });
+  };
+
+  handleSubmit(e) {
+    console.log(this.state.value);
+    e.preventDefault();
+  }
+  // componentDidUpdate(prevProps, prevState) {
+  // })
 
   componentDidMount() {
     fetch("/api/tweets/Playstation")
@@ -29,8 +43,9 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Navigationbar
-        />
+        <form onSubmit={this.handleSubmit}>
+          <Navigationbar onChange={this.onChange} />
+        </form>
         <Switch>
           <Route path="/" component={Home} exact />
           <Route

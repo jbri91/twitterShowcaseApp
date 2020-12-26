@@ -2,7 +2,6 @@ import React from "react";
 import TwitterCard from "../components/TwitterCard";
 
 function Search(props) {
-  console.log(props)
   const cardStyle = {
     display: "flex",
     flexWrap: "wrap",
