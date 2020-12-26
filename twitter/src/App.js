@@ -7,22 +7,22 @@ import Random from "./Pages/Random";
 import Search from "./Pages/Search";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       tweeter: "",
-      key: Math.floor(Math.random() * 100) + 5,
+      id: Math.floor(Math.random() * 100) + 5,
     };
   }
 
   componentDidMount() {
     fetch("/user/Playstation")
       .then((response) => response.json())
-      .then((data) => {
+      .then((data) =>
         this.setState({
           tweeter: data,
-        });
-      })
+        }) 
+      )
       .catch((error) => console.log(error));
   }
 
@@ -44,7 +44,7 @@ class App extends React.Component {
                 retweets={this.state.tweeter.retweets}
                 likes={this.state.tweeter.likes}
                 image={this.state.tweeter.image}
-                key={this.state.key}
+                id={this.state.id}
               />
             )}
           />
