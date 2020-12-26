@@ -50,7 +50,19 @@ class Tweets(Resource):
     def get(self, name):
         return tweets
 
+
+class TweetUser(Resource):
+    def get(self, name):
+        for tweet in tweets:
+            if(name == tweet['name']):
+                tweet1 = tweet['name'].lower() 
+                return tweet, 200
+        return 'User not found', 404
+
 api.add_resource(Tweets, '/api/tweets/<string:name>')
+
+api.add_resource(TweetUser, '/api/tweetUser/<string:name>')
+
 app.run(debug=True)
 
 

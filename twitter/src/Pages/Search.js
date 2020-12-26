@@ -14,9 +14,6 @@ function Search(props) {
     <div className="search">
       <div style={cardStyle}>
         <TwitterCard />
-        <TwitterCard />
-        <TwitterCard />
-        <TwitterCard />
       </div>
     </div>
   );
