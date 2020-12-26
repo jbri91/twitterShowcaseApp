@@ -10,8 +10,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      tweeter: "",
-      id: Math.floor(Math.random() * 100) + 5,
+      tweeter: [[]],
     };
   }
 
@@ -27,6 +26,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.tweeter.length)
     return (
       <BrowserRouter>
         <Navigationbar />
@@ -36,14 +36,13 @@ class App extends React.Component {
             path="/random"
             render={() => (
               <Random
-                name={this.state.tweeter.name}
-                userName={this.state.tweeter.userName}
-                tweet={this.state.tweeter.tweet}
-                comments={this.state.tweeter.comments}
-                retweets={this.state.tweeter.retweets}
-                likes={this.state.tweeter.likes}
-                image={this.state.tweeter.image}
-                id={this.state.id}
+                name={this.state.tweeter[0].name}
+                userName={this.state.tweeter[0].userName}
+                tweet={this.state.tweeter[0].tweet}
+                comments={this.state.tweeter[0].comments}
+                retweets={this.state.tweeter[0].retweets}
+                likes={this.state.tweeter[0].likes}
+                image={this.state.tweeter[0].image}
               />
             )}
           />
