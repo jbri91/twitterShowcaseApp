@@ -3,7 +3,7 @@ from flask_restful import Api, Resource, reqparse
 app = Flask(__name__)
 api = Api(app)
 
-users =[
+tweets =[
     {
     'name': 'MrBeast',
     'userName': '@MrBeastsYT',
@@ -12,6 +12,7 @@ users =[
     'retweets': '908',
     'likes': '46K',
     'image': '',
+    'id': 1,
     },
     {
     'name': 'Elon Musk',
@@ -21,6 +22,7 @@ users =[
     'retweets': '18.5k',
     'likes': '178.5K',
     'image': '',
+    'id': 2,
     },
     {
     'name': 'Ninja',
@@ -30,6 +32,7 @@ users =[
     'retweets': '681',
     'likes': '27.6K',
     'image': '',
+    'id': 3,
     },
     {
     'name': 'Playstation',
@@ -39,14 +42,15 @@ users =[
     'retweets': '5K',
     'likes': '19.1K',
     'image': '',
+    'id': 4,
     }
 ]
 
-class User(Resource):
+class Tweets(Resource):
     def get(self, name):
-        return users
+        return tweets
 
-api.add_resource(User, '/user/<string:name>')
+api.add_resource(Tweets, '/api/tweets/<string:name>')
 app.run(debug=True)
 
 

@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("/user/Playstation")
+    fetch("/api/tweets/Playstation")
       .then((response) => response.json())
       .then((data) =>
         this.setState({
