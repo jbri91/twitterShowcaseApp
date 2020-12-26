@@ -37,13 +37,7 @@ class App extends React.Component {
             path="/random"
             render={() => (
               <Random
-                name={this.state.tweeter[0].name}
-                userName={this.state.tweeter[0].userName}
-                tweet={this.state.tweeter[0].tweet}
-                comments={this.state.tweeter[0].comments}
-                retweets={this.state.tweeter[0].retweets}
-                likes={this.state.tweeter[0].likes}
-                image={this.state.tweeter[0].image}
+               tweeter={this.state.tweeter}
               />
             )}
           />
