@@ -23,8 +23,11 @@ class App extends React.Component {
   };
 
   handleSubmit(e) {
-    console.log(this.state.value);
     e.preventDefault();
+    this.setState({
+      value: e.target.value,
+    });
+    
   }
 
   componentDidUpdate(prevProps, prevState) {

@@ -2,7 +2,7 @@ import React from "react";
 
 function UserInput(props) {
   return (
-    <div>
+    <form onSubmit={props.handleSubmit}>
       <input
         onClick={props.onClick}
         style={{
@@ -14,7 +14,7 @@ function UserInput(props) {
         type="text"
         placeholder="Search for User or Tweet"
       />
-    </div>
+    </form>
   );
 }
 
