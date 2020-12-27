@@ -34,7 +34,7 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((data) => 
       this.setState({
-        value: currentValue
+        value: data
       })
       )
       .catch((error) => console.log(error));
@@ -53,6 +53,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.value)
     return (
       <BrowserRouter>
         <form onSubmit={this.handleSubmit}>
@@ -66,7 +67,7 @@ class App extends React.Component {
           />
           <Route
             path="/search"
-            render={() => <Search tweets={this.state.tweets} />}
+            render={() => <Search userSearch={this.state.value} />}
           />
         </Switch>
       </BrowserRouter>
