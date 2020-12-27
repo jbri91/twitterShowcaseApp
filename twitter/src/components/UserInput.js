@@ -5,6 +5,8 @@ function UserInput(props) {
   return (
     <form onSubmit={props.handleSubmit}>
       <input
+      value={props.value}
+      onChange={props.handleChange}
         style={{
           justifyContent: "center",
           paddingTop: "20px",

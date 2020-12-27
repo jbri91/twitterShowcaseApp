@@ -11,7 +11,9 @@ function NavigationBar(props) {
         Twitter Showcase App
       </a>
      
-      <UserInput 
+      <UserInput
+      handleChange={props.handleChange}
+      value={props.value} 
       handleSubmit={props.handleSubmit}/>
      
       <button

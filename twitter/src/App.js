@@ -14,7 +14,14 @@ class App extends React.Component {
       value: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange - this.handleChange.bind(this);
   }
+
+  handleChange(e) {
+    this.setState({
+      value: e.target.value,
+    });
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -52,7 +59,11 @@ class App extends React.Component {
     console.log(this.state.value);
     return (
       <BrowserRouter>
-        <Navigationbar handleSubmit={this.handleSubmit} />
+        <Navigationbar
+          handleChange={this.handleChange}
+          value={this.state.value}
+          handleSubmit={this.handleSubmit}
+        />
 
         <Switch>
           <Route path="/" component={Home} exact />
