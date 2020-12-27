@@ -24,25 +24,18 @@ class App extends React.Component {
   };
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    this.setState({
-      value: e.target.value,
-    });
-  };
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.value !== this.state.value) {
-      let currentValue = this.state.value;
-      fetch(`/api/tweetUser/${currentValue}`)
-        .then((response) => response.json())
-        .then((data) =>
-          this.setState({
-            value: data,
-          })
-        )
-        .catch((error) => console.log(error));
-    }
+    e.preventDefault()
+    let currentValue = this.state.value;
+    fetch(`/api/tweetUser/${currentValue}`)
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState({
+          value: data,
+        })
+      )
+      .catch((error) => console.log(error));
   }
+
 
   componentDidMount() {
     fetch("/api/tweets/Playstation")
@@ -56,7 +49,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.value);
     return (
       <BrowserRouter>
         <Navigationbar
