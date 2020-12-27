@@ -16,19 +16,12 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onClick = (e) => {
-    this.setState({
-      value: e.target.value,
-    });
-  };
-
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.setState({
       value: e.target.value,
     });
-    
-  }
+  };
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.value !== this.state.value) {
@@ -59,7 +52,7 @@ class App extends React.Component {
     console.log(this.state.value);
     return (
       <BrowserRouter>
-        <Navigationbar onClick={this.onClick} onSubmit={this.handleSubmit} />
+        <Navigationbar onSubmit={this.handleSubmit} />
 
         <Switch>
           <Route path="/" component={Home} exact />

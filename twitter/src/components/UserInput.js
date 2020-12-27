@@ -1,10 +1,10 @@
 import React from "react";
 
 function UserInput(props) {
+  console.log(props)
   return (
     <form onSubmit={props.handleSubmit}>
       <input
-        onClick={props.onClick}
         style={{
           justifyContent: "center",
           paddingTop: "20px",

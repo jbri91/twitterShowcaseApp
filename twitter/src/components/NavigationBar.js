@@ -10,7 +10,7 @@ function NavigationBar(props) {
         Twitter Showcase App
       </a>
      
-      <UserInput onClick={props.onClick} 
+      <UserInput 
       onSubmit={props.handleSubmit}/>
      
       <button
