@@ -16,7 +16,7 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onChange = (e) => {
+  onClick = (e) => {
     this.setState({
       value: e.target.value,
     });
@@ -57,7 +57,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <form onSubmit={this.handleSubmit}>
-          <Navigationbar onChange={this.onChange} />
+          <Navigationbar onClick={this.onClick} />
         </form>
         <Switch>
           <Route path="/" component={Home} exact />

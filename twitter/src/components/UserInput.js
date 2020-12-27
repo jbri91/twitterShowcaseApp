@@ -4,7 +4,7 @@ function UserInput(props) {
   return (
     <div>
       <input
-        onChange={props.onChange}
+        onClick={props.onClick}
         style={{
           justifyContent: "center",
           paddingTop: "20px",

@@ -9,7 +9,7 @@ function NavigationBar(props) {
       <a href="#twitter" className="navbar-brand font-weight-bolder">
         Twitter Showcase App
       </a>
-      <UserInput onChange={props.onChange} />
+      <UserInput onClick={props.onClick} />
       <button
         className="navbar-toggler"
         data-toggle="collapse"
