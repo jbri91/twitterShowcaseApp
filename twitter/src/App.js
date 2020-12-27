@@ -10,7 +10,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tweeter: [],
+      tweets: [],
       value: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,15 +26,19 @@ class App extends React.Component {
     console.log(this.state.value);
     e.preventDefault();
   }
-  // componentDidUpdate(prevProps, prevState) {
-  // })
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.value !== this.state.value) {
+      console.log("value has changed");
+    }
+  }
 
   componentDidMount() {
     fetch("/api/tweets/Playstation")
       .then((response) => response.json())
       .then((data) =>
         this.setState({
-          tweeter: data,
+          tweets: data,
         })
       )
       .catch((error) => console.log(error));
@@ -50,11 +54,11 @@ class App extends React.Component {
           <Route path="/" component={Home} exact />
           <Route
             path="/random"
-            render={() => <Random tweeter={this.state.tweeter} />}
+            render={() => <Random tweets={this.state.tweets} />}
           />
           <Route
             path="/search"
-            render={() => <Search tweeter={this.state.tweeter} />}
+            render={() => <Search tweets={this.state.tweets} />}
           />
         </Switch>
       </BrowserRouter>

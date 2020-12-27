@@ -12,17 +12,17 @@ function Random(props) {
     flexDirection: "row",
   };
 
-  for(let i =0; i < props.tweeter.length; i++){
+  for(let i =0; i < props.tweets.length; i++){
     randomUserCard.push(
     <TwitterCard 
-          key={props.tweeter[i].id}
-          name={props.tweeter[i].name}
-          userName={props.tweeter[i].userName}
-          tweet={props.tweeter[i].tweet}
-          comments={props.tweeter[i].comments}
-          retweets={props.tweeter[i].retweets}
-          likes={props.tweeter[i].likes}
-          image={props.tweeter[i].image}
+          key={props.tweets[i].id}
+          name={props.tweets[i].name}
+          userName={props.tweets[i].userName}
+          tweet={props.tweets[i].tweet}
+          comments={props.tweets[i].comments}
+          retweets={props.tweets[i].retweets}
+          likes={props.tweets[i].likes}
+          image={props.tweets[i].image}
        />)
   }
 
