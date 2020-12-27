@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import UserInput from "./UserInput";
 
 function NavigationBar(props) {
+  console.log(props)
   return (
     <nav className="navbar navbar-light bg-light navbar-expand-lg fixed-top">
       <a href="#twitter" className="navbar-brand font-weight-bolder">
@@ -11,7 +12,7 @@ function NavigationBar(props) {
       </a>
      
       <UserInput 
-      onSubmit={props.handleSubmit}/>
+      handleSubmit={props.handleSubmit}/>
      
       <button
         className="navbar-toggler"

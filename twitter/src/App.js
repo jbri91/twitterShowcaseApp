@@ -52,7 +52,7 @@ class App extends React.Component {
     console.log(this.state.value);
     return (
       <BrowserRouter>
-        <Navigationbar onSubmit={this.handleSubmit} />
+        <Navigationbar handleSubmit={this.handleSubmit} />
 
         <Switch>
           <Route path="/" component={Home} exact />
