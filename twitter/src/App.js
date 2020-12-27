@@ -14,7 +14,7 @@ class App extends React.Component {
       value: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange - this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
@@ -61,7 +61,6 @@ class App extends React.Component {
       <BrowserRouter>
         <Navigationbar
           handleChange={this.handleChange}
-          value={this.state.value}
           handleSubmit={this.handleSubmit}
         />
 

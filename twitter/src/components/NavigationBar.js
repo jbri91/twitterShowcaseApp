@@ -13,7 +13,6 @@ function NavigationBar(props) {
      
       <UserInput
       handleChange={props.handleChange}
-      value={props.value} 
       handleSubmit={props.handleSubmit}/>
      
       <button
