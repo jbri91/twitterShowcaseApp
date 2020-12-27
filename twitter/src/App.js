@@ -31,13 +31,13 @@ class App extends React.Component {
     if (prevState.value !== this.state.value) {
       let currentValue = this.state.value;
       fetch(`/api/tweetUser/${currentValue}`)
-      .then((response) => response.json())
-      .then((data) => 
-      this.setState({
-        value: data
-      })
-      )
-      .catch((error) => console.log(error));
+        .then((response) => response.json())
+        .then((data) =>
+          this.setState({
+            value: data,
+          })
+        )
+        .catch((error) => console.log(error));
     }
   }
 
@@ -53,12 +53,11 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.value)
+    console.log(this.state.value);
     return (
       <BrowserRouter>
-        <form onSubmit={this.handleSubmit}>
-          <Navigationbar onClick={this.onClick} />
-        </form>
+        <Navigationbar onClick={this.onClick} onSubmit={this.handleSubmit} />
+
         <Switch>
           <Route path="/" component={Home} exact />
           <Route
