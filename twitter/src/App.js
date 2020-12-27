@@ -29,7 +29,12 @@ class App extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.value !== this.state.value) {
-      console.log("value has changed");
+      let currentValue = this.state.value;
+      fetch(`/api/tweetUser/${currentValue}`)
+      .then((response) => response.json())
+      .then((data) => console.log(data)
+      )
+      .catch((error) => console.log(error));
     }
   }
 
