@@ -11,10 +11,24 @@ function Search(props) {
     alignItems: "center",
     flexDirection: "row",
   };
+  
+  const searchCard = () => {
+    if(props.userSearch) {
+      
+    }
+  }
+
   return (
     <div className="search">
       <div style={cardStyle}>
-        <TwitterCard />
+        {props.userSearch ? <TwitterCard
+        name={props.userSearch.name}
+        userName={props.userSearch.userName}
+        tweet={props.userSearch.tweet}
+        comments={props.userSearch.comments}
+        retweets={props.userSearch.retweets}
+        likes={props.userSearch.likes}
+        image={props.userSearch.image} /> : null}
       </div>
     </div>
   );
