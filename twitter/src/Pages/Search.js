@@ -2,7 +2,7 @@ import React from "react";
 import TwitterCard from "../components/TwitterCard";
 
 function Search(props) {
-  console.log(props.userSearch)
+  console.log(props)
   const cardStyle = {
     display: "flex",
     flexWrap: "wrap",
@@ -11,17 +11,11 @@ function Search(props) {
     alignItems: "center",
     flexDirection: "row",
   };
-  
-  const searchCard = () => {
-    if(props.userSearch) {
-      
-    }
-  }
 
   return (
     <div className="search">
       <div style={cardStyle}>
-        {props.userSearch ? <TwitterCard
+        {props.userSearch.name ? <TwitterCard
         name={props.userSearch.name}
         userName={props.userSearch.userName}
         tweet={props.userSearch.tweet}
