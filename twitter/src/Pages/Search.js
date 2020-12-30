@@ -16,10 +16,15 @@ function Search(props) {
   return (
     <div className="search">
       <div style={cardStyle}>
-        <UserInput
-          handleChange={props.handleChange}
-          handleSubmit={props.handleSubmit}
-        />
+        <div style={{ display: "flex" }}>
+          <UserInput
+            placeholder="Find User"
+            handleChange={props.handleChange}
+            handleSubmit={props.handleSubmit}
+          />
+          <br />
+          <UserInput placeholder="Find Tweet" />
+        </div>
         {props.userSearch.name ? (
           <TwitterCard
             name={props.userSearch.name}
