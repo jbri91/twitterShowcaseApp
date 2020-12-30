@@ -12,8 +12,8 @@ function UserInput(props) {
           paddingRight: "25px",
         }}
         type="text"
-        placeholder="Search for User or Tweet"
-      />
+        placeholder="Search for User"
+        />
     </form>
   );
 }
