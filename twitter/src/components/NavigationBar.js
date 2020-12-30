@@ -1,7 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { NavLink } from "react-router-dom";
-import UserInput from "./UserInput";
 
 function NavigationBar(props) {
   return (
@@ -9,11 +8,6 @@ function NavigationBar(props) {
       <a href="#twitter" className="navbar-brand font-weight-bolder">
         Twitter Showcase App
       </a>
-     
-      <UserInput
-      handleChange={props.handleChange}
-      handleSubmit={props.handleSubmit}/>
-     
       <button
         className="navbar-toggler"
         data-toggle="collapse"

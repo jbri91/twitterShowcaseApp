@@ -61,8 +61,7 @@ class TweetUser(Resource):
 api.add_resource(Tweets, '/api/tweets/<string:name>')
 
 api.add_resource(TweetUser, '/api/tweetUser/<string:name>')
-if(__name__ == "__main__"):
-    app.run() 
+
 app.run(debug=True)
 
 

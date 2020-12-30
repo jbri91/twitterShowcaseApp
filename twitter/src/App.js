@@ -21,10 +21,10 @@ class App extends React.Component {
     this.setState({
       value: e.target.value,
     });
-  };
+  }
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     let currentValue = this.state.value;
     fetch(`/api/tweetUser/${currentValue}`)
       .then((response) => response.json())
@@ -34,8 +34,7 @@ class App extends React.Component {
         })
       )
       .catch((error) => console.log(error));
-  }
-
+  };
 
   componentDidMount() {
     fetch("/api/tweets/Playstation")
@@ -49,12 +48,10 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.tweets)
     return (
       <BrowserRouter>
-        <Navigationbar
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
+        <Navigationbar/>
 
         <Switch>
           <Route path="/" component={Home} exact />
@@ -64,7 +61,13 @@ class App extends React.Component {
           />
           <Route
             path="/search"
-            render={() => <Search userSearch={this.state.value} />}
+            render={() => (
+              <Search
+                userSearch={this.state.value}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+              />
+            )}
           />
         </Switch>
       </BrowserRouter>

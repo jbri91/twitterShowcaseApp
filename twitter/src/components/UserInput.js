@@ -6,13 +6,15 @@ function UserInput(props) {
       <input
       onChange={props.handleChange}
         style={{
+          display: 'flex',
+          marginTop: '-23px',
           justifyContent: "center",
-          paddingTop: "20px",
+          paddingTop: "10px",
           paddingLeft: "25px",
           paddingRight: "25px",
         }}
         type="text"
-        placeholder="Search for User"
+        placeholder="Search for User or Tweet"
         />
     </form>
   );
