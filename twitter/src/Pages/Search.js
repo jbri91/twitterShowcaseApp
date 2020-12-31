@@ -58,7 +58,9 @@ function Search(props) {
             likes={props.userSearch.likes}
             image={props.userSearch.image}
           />
-        ) : props.tweetFinder.length > 0 ? tweetArray : null}
+        ) : props.tweetFinder.length > 0 ? (
+          tweetArray
+        ) : null}
       </div>
     </div>
   );

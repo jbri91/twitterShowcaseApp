@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       tweets: [],
       value: "",
-      tweetFinder: []
+      tweetFinder: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -47,12 +47,11 @@ class App extends React.Component {
           .toLowerCase()
           .includes(this.state.value.toLowerCase())
       ) {
-        
         tweetArray.push(this.state.tweets[i]);
       }
       this.setState({
-        tweetFinder: tweetArray
-      })
+        tweetFinder: tweetArray,
+      });
     }
   };
 
@@ -82,7 +81,7 @@ class App extends React.Component {
             path="/search"
             render={() => (
               <Search
-              tweetFinder={this.state.tweetFinder}
+                tweetFinder={this.state.tweetFinder}
                 tweets={this.state.tweets}
                 userSearch={this.state.value}
                 handleChange={this.handleChange}
