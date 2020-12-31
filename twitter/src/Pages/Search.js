@@ -3,7 +3,6 @@ import TwitterCard from "../components/TwitterCard";
 import UserInput from "../components/UserInput";
 
 function Search(props) {
-  console.log(props);
   const cardStyle = {
     display: "flex",
     flexWrap: "wrap",
@@ -17,13 +16,23 @@ function Search(props) {
     <div className="search">
       <div style={cardStyle}>
         <div style={{ display: "flex" }}>
+          <form onSubmit={props.handleSubmit}>
           <UserInput
             placeholder="Find User"
+            name="findUser"
             handleChange={props.handleChange}
             handleSubmit={props.handleSubmit}
           />
+          </form>
           <br />
-          <UserInput placeholder="Find Tweet" />
+          <form  onSubmit={props.alternateSubmit}>
+          <UserInput
+            placeholder="Find Tweet"
+            name="findTweet"
+            handleChange={props.handleChange}
+           
+          />
+          </form>
         </div>
         {props.userSearch.name ? (
           <TwitterCard

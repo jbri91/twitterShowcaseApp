@@ -2,7 +2,6 @@ import React from "react";
 
 function UserInput(props) {
   return (
-    <form onSubmit={props.handleSubmit}>
       <input
         onChange={props.handleChange}
         style={{
@@ -14,9 +13,9 @@ function UserInput(props) {
           paddingRight: "25px",
         }}
         type="text"
+        name={props.name}
         placeholder={props.placeholder}
       />
-    </form>
   );
 }
 

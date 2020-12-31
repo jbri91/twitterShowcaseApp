@@ -12,9 +12,11 @@ class App extends React.Component {
     this.state = {
       tweets: [],
       value: "",
+      tweetValue: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.alternateSubmit = this.alternateSubmit.bind(this);
   }
 
   handleChange(e) {
@@ -36,6 +38,17 @@ class App extends React.Component {
       .catch((error) => console.log(error));
   };
 
+  alternateSubmit = (e) => {
+    e.preventDefault();
+    for (let i = 0; i < this.state.tweets.length; i++) {
+      if (this.state.tweets[i].tweet.toLowerCase().includes(this.state.value.toLowerCase())) {
+        console.log(this.state.tweets[i].tweet);
+      } else {
+        console.log('Sorry, no tweets were found')
+      }
+    }
+  };
+
   componentDidMount() {
     fetch("/api/tweets/Playstation")
       .then((response) => response.json())
@@ -48,10 +61,9 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.tweets)
     return (
       <BrowserRouter>
-        <Navigationbar/>
+        <Navigationbar />
 
         <Switch>
           <Route path="/" component={Home} exact />
@@ -63,9 +75,11 @@ class App extends React.Component {
             path="/search"
             render={() => (
               <Search
+                tweets={this.state.tweets}
                 userSearch={this.state.value}
                 handleChange={this.handleChange}
                 handleSubmit={this.handleSubmit}
+                alternateSubmit={this.alternateSubmit}
               />
             )}
           />
