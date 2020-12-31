@@ -15,6 +15,7 @@ function Search(props) {
   for (let i = 0; i < props.tweetFinder.length; i++) {
     tweetArray.push(
       <TwitterCard
+        key={props.tweetFinder[i].id}
         name={props.tweetFinder[i].name}
         userName={props.tweetFinder[i].userName}
         tweet={props.tweetFinder[i].tweet}
