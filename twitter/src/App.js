@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       tweets: [],
       value: "",
-      tweetValue: "",
+      tweetFinder: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -40,12 +40,19 @@ class App extends React.Component {
 
   alternateSubmit = (e) => {
     e.preventDefault();
+    let tweetArray = [];
     for (let i = 0; i < this.state.tweets.length; i++) {
-      if (this.state.tweets[i].tweet.toLowerCase().includes(this.state.value.toLowerCase())) {
-        console.log(this.state.tweets[i].tweet);
-      } else {
-        console.log('Sorry, no tweets were found')
+      if (
+        this.state.tweets[i].tweet
+          .toLowerCase()
+          .includes(this.state.value.toLowerCase())
+      ) {
+        
+        tweetArray.push(this.state.tweets[i]);
       }
+      this.setState({
+        tweetFinder: tweetArray
+      })
     }
   };
 
@@ -75,6 +82,7 @@ class App extends React.Component {
             path="/search"
             render={() => (
               <Search
+              tweetFinder={this.state.tweetFinder}
                 tweets={this.state.tweets}
                 userSearch={this.state.value}
                 handleChange={this.handleChange}

@@ -11,27 +11,40 @@ function Search(props) {
     alignItems: "center",
     flexDirection: "row",
   };
+  const tweetArray = [];
+  for (let i = 0; i < props.tweetFinder.length; i++) {
+    tweetArray.push(
+      <TwitterCard
+        name={props.tweetFinder[i].name}
+        userName={props.tweetFinder[i].userName}
+        tweet={props.tweetFinder[i].tweet}
+        comments={props.tweetFinder[i].comments}
+        retweets={props.tweetFinder[i].retweets}
+        likes={props.tweetFinder[i].likes}
+        image={props.tweetFinder[i].image}
+      />
+    );
+  }
 
   return (
     <div className="search">
       <div style={cardStyle}>
         <div style={{ display: "flex" }}>
           <form onSubmit={props.handleSubmit}>
-          <UserInput
-            placeholder="Find User"
-            name="findUser"
-            handleChange={props.handleChange}
-            handleSubmit={props.handleSubmit}
-          />
+            <UserInput
+              placeholder="Find User"
+              name="findUser"
+              handleChange={props.handleChange}
+              handleSubmit={props.handleSubmit}
+            />
           </form>
           <br />
-          <form  onSubmit={props.alternateSubmit}>
-          <UserInput
-            placeholder="Find Tweet"
-            name="findTweet"
-            handleChange={props.handleChange}
-           
-          />
+          <form onSubmit={props.alternateSubmit}>
+            <UserInput
+              placeholder="Find Tweet"
+              name="findTweet"
+              handleChange={props.handleChange}
+            />
           </form>
         </div>
         {props.userSearch.name ? (
@@ -44,7 +57,7 @@ function Search(props) {
             likes={props.userSearch.likes}
             image={props.userSearch.image}
           />
-        ) : null}
+        ) : props.tweetFinder.length > 0 ? tweetArray : null}
       </div>
     </div>
   );
