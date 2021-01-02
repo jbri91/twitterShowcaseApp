@@ -41,17 +41,19 @@ class App extends React.Component {
   alternateSubmit = (e) => {
     e.preventDefault();
     let tweetArray = [];
-    for (let i = 0; i < this.state.tweets.length; i++) {
-      if (
-        this.state.tweets[i].tweet
-          .toLowerCase()
-          .includes(this.state.value.toLowerCase())
-      ) {
-        tweetArray.push(this.state.tweets[i]);
+    if (this.state.value > "") {
+      for (let i = 0; i < this.state.tweets.length; i++) {
+        if (
+          this.state.tweets[i].tweet
+            .toLowerCase()
+            .includes(this.state.value.toLowerCase())
+        ) {
+          tweetArray.push(this.state.tweets[i]);
+        }
+        this.setState({
+          tweetFinder: tweetArray,
+        });
       }
-      this.setState({
-        tweetFinder: tweetArray,
-      });
     }
   };
 
@@ -65,6 +67,7 @@ class App extends React.Component {
       )
       .catch((error) => console.log(error));
   }
+
 
   render() {
     return (
