@@ -58,16 +58,34 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch("/api/tweets/Playstation")
+    fetch(
+      "https://api.twitter.com/1.1/search/tweets.json?q=nasa&result_type=recent",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer AAAAAAAAAAAAAAAAAAAAAPy5LAEAAAAAgnWUGbDhvpF5ZbTuuRld17qV%2FD4%3DWvwkpQ3B4NwfDkyyYjU6iYOpnGStOiwOiPLnFKoST7Dg8W2lWa",
+          Accept: "application/json",
+        },
+        mode: "no-cors",
+      }
+    )
       .then((response) => response.json())
-      .then((data) =>
-        this.setState({
-          tweets: data,
-        })
-      )
+      .then((data) => console.log(data))
       .catch((error) => console.log(error));
   }
 
+  // componentDidMount() {
+  //   fetch(
+  //     "https://api.twitter.com/1.1/search/tweets.json?q=nasa&result_type=recent&access_token=AAAAAAAAAAAAAAAAAAAAAPy5LAEAAAAAgnWUGbDhvpF5ZbTuuRld17qV%2FD4%3DWvwkpQ3B4NwfDkyyYjU6iYOpnGStOiwOiPLnFKoST7Dg8W2lWa&Access-Control-Allow-Origin"
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) =>
+  //     console.log(data)
+  //     )
+  //     .catch((error) => console.log(error));
+  // }
 
   render() {
     return (
