@@ -8,27 +8,22 @@ import Share from "../Images/Share.png";
 import Settings from "../Images/Settings.png";
 import BlueCheck from "../Images/BlueCheck.png";
 
-function TwitterCard() {
+function TwitterCard(props) {
   return (
     <div>
       <Card style={{ width: "35rem", margin: "35px" }}>
         <Card.Body>
           <Card.Title style={{ fontSize: "15px", fontWeight: "bolder" }}>
-            Playstation <img alt="blue check" variant="top" src={BlueCheck} />
+            {props.name} <img alt="blue check" variant="top" src={BlueCheck} />
             <img
               alt="setting"
               variant="top"
               src={Settings}
               style={{ marginLeft: "390px" }}
             />
-            <p style={{ fontSize: "15px", color: "gray" }}>@Playstation</p>
+            <p style={{ fontSize: "15px", color: "gray" }}>{props.userName}</p>
           </Card.Title>
-          <Card.Text>
-            Multiplayer maps & modes Collision symbol Nuketown Holiday 24/7
-            Collision symbol Prop Hunt Collision symbol Much more Jump into the
-            #BlackOpsColdWar Free Access Week, starting on December 17:
-            https://bit.ly/BOCWFreeTrial
-          </Card.Text>
+          <Card.Text>{props.tweet}</Card.Text>
           <Card.Img
             variant="top"
             src={CardImage}
@@ -43,13 +38,13 @@ function TwitterCard() {
             }}
           >
             <p>
-              <img alt="comment" variant="top" src={Comment} /> 367
+              <img alt="comment" variant="top" src={Comment} /> {props.comments}
             </p>
             <p>
-              <img alt="retweet" variant="top" src={Retweet} /> 3K
+              <img alt="retweet" variant="top" src={Retweet} /> {props.retweets}
             </p>
             <p>
-              <img alt="heart" variant="top" src={HeartImage} /> 12.1K
+              <img alt="heart" variant="top" src={HeartImage} /> {props.likes}
             </p>
             <p>
               <img alt="share" variant="top" src={Share} />
