@@ -58,7 +58,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch( "https://api.twitter.com/1.1/search/tweets.json?q=nasa&result_type=recent",
+    fetch( "https://api.twitter.com/1.1/search/tweets.json?q=nasa&result_type=recent" ,
       {
         method: "GET",
         mode: "no-cors",
