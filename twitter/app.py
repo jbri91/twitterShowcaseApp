@@ -3,11 +3,16 @@ from flask_restful import Api, Resource, reqparse
 app = Flask(__name__)
 api = Api(app)
 import requests
+from requests_oauthlib import OAuth1Session
 
+# url = 'https://api.twitter.com/1.1/search/tweets.json'
+# auth = OAuth1Session('EeNdQfCxEuwofHd3a4G6MPf4n', 'HIqXFKZvLf5pDG1dJyla6rAvvVFFtzZyczKz8HIKTNa5GImlR4', '1262230719687991299-FVM3Ht8Ujx38XX1A3RsBkr6XM5C6Yi', 'AJCfZqm0T8Ne3vi2ZpApN3nPSZzvuOTIZ7YKLIwt36Zth' )
+
+# r = requests.get(url, auth=auth)
 
 tkn = 'Bearer AAAAAAAAAAAAAAAAAAAAAPy5LAEAAAAAgnWUGbDhvpF5ZbTuuRld17qV%2FD4%3DWvwkpQ3B4NwfDkyyYjU6iYOpnGStOiwW2lWaOiPLnFKoST7Dg8'
 payload = {'q':'nasa', 'result_type':'popular'}
-headers = {'Authorization': tkn, 'Accept' : 'application/json'}
+headers = {'authorization': tkn, 'Accept' : 'application/json'}
 r = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers)
 print(r.status_code)
 print(r.url)
