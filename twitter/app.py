@@ -12,7 +12,7 @@ from requests_oauthlib import OAuth1Session
 
 tkn = 'Bearer AAAAAAAAAAAAAAAAAAAAAPy5LAEAAAAAgnWUGbDhvpF5ZbTuuRld17qV%2FD4%3DWvwkpQ3B4NwfDkyyYjU6iYOpnGStOiwW2lWaOiPLnFKoST7Dg8'
 payload = {'q':'nasa', 'result_type':'popular'}
-headers = {'authorization': tkn, 'Accept' : 'application/json'}
+headers = {'Authorization': tkn, 'Accept' : 'application/json', 'Content-Type':'application/json'}
 r = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers)
 print(r.status_code)
 print(r.url)
