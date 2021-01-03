@@ -2,6 +2,17 @@ from flask import Flask, jsonify
 from flask_restful import Api, Resource, reqparse
 app = Flask(__name__)
 api = Api(app)
+import requests
+
+
+tkn = 'Bearer AAAAAAAAAAAAAAAAAAAAAPy5LAEAAAAAgnWUGbDhvpF5ZbTuuRld17qV%2FD4%3DWvwkpQ3B4NwfDkyyYjU6iYOpnGStOiwW2lWaOiPLnFKoST7Dg8'
+payload = {'q':'nasa', 'result_type':'popular'}
+headers = {'Authorization': tkn, 'Accept' : 'application/json'}
+r = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers)
+print(r.status_code)
+print(r.url)
+
+
 
 tweets =[
     {
@@ -57,6 +68,8 @@ class TweetUser(Resource):
             if(name == tweet['name']):
                 return tweet, 200
         return 'User not found', 404
+
+
 
 api.add_resource(Tweets, '/api/tweets/<string:name>')
 
