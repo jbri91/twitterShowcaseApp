@@ -5,12 +5,13 @@ api = Api(app)
 import requests
 
 
-tkn = 'Bearer AAAAAAAAAAAAAAAAAAAAAPy5LAEAAAAAgnWUGbDhvpF5ZbTuuRld17qV%2FD4%3DWvwkpQ3B4NwfDkyyYjU6iYOpnGStOiwW2lWaOiPLnFKoST7Dg8'
+tkn = 'Bearer AAAAAAAAAAAAAAAAAAAAAPy5LAEAAAAAGLzQdm7Geimz2mueyGQCRlJE2wg%3DtHF24CFQf9D984qDYqf0vIIWItJ8ZxzfzvSktaS3qWHvfQG5uf'
 payload = {'q':'nasa', 'result_type':'popular'}
 headers = {'Authorization': tkn, 'Accept' : 'application/json', 'Content-Type':'application/json'}
 r = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers)
 print(r.status_code)
 print(r.url)
+print(r.text)
 
 
 
