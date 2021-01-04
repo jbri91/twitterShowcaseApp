@@ -10,12 +10,12 @@ tkn = 'Bearer AAAAAAAAAAAAAAAAAAAAAPy5LAEAAAAAGLzQdm7Geimz2mueyGQCRlJE2wg%3DtHF2
 payload = {'q':'elon musk', 'result_type':'popular', 'count': '5'}
 headers = {'Authorization': tkn, 'Accept' : 'application/json', 'Content-Type':'application/json'}
 r = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers)
-json = r.json()
-print(json['statuses'][1]['text'])
-print(json['statuses'][1]['user']['name'])
-print(json['statuses'][1]['user']['screen_name'])
-print(json['statuses'][1]['retweet_count'])
-print(json['statuses'][1]['favorite_count'])
+tweets = r.json()
+print(tweets['statuses'][1]['text'])
+print(tweets['statuses'][1]['user']['name'])
+print(tweets['statuses'][1]['user']['screen_name'])
+print(tweets['statuses'][1]['retweet_count'])
+print(tweets['statuses'][1]['favorite_count'])
 
 
 
