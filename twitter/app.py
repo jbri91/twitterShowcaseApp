@@ -3,15 +3,21 @@ from flask_restful import Api, Resource, reqparse
 app = Flask(__name__)
 api = Api(app)
 import requests
+import json
 
 
 tkn = 'Bearer AAAAAAAAAAAAAAAAAAAAAPy5LAEAAAAAGLzQdm7Geimz2mueyGQCRlJE2wg%3DtHF24CFQf9D984qDYqf0vIIWItJ8ZxzfzvSktaS3qWHvfQG5uf'
-payload = {'q':'nasa', 'result_type':'popular'}
+payload = {'q':'elon musk', 'result_type':'popular', 'count': '5'}
 headers = {'Authorization': tkn, 'Accept' : 'application/json', 'Content-Type':'application/json'}
 r = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers)
-print(r.status_code)
-print(r.url)
-print(r.text)
+json = r.json()
+print(json['statuses'][1]['text'])
+print(json['statuses'][1]['user']['name'])
+print(json['statuses'][1]['user']['screen_name'])
+print(json['statuses'][1]['retweet_count'])
+print(json['statuses'][1]['favorite_count'])
+
+
 
 
 
@@ -69,7 +75,6 @@ class TweetUser(Resource):
             if(name == tweet['name']):
                 return tweet, 200
         return 'User not found', 404
-
 
 
 api.add_resource(Tweets, '/api/tweets/<string:name>')
