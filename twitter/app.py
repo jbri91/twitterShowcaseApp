@@ -7,7 +7,7 @@ import json
 
 
 tkn = 'Bearer AAAAAAAAAAAAAAAAAAAAAPy5LAEAAAAAGLzQdm7Geimz2mueyGQCRlJE2wg%3DtHF24CFQf9D984qDYqf0vIIWItJ8ZxzfzvSktaS3qWHvfQG5uf'
-payload = {'q':'Elon Musk', 'result_type':'popular', 'count': '5'}
+payload = {'q':'Elon Musk', 'result_type':'popular', 'count': '10'}
 headers = {'Authorization': tkn, 'Accept' : 'application/json', 'Content-Type':'application/json'}
 twitter = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers)
 tweets = twitter.json()
