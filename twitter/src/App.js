@@ -57,15 +57,22 @@ class App extends React.Component {
     }
   };
 
+  // componentDidMount() {
+  //   fetch("/api/tweets/Playstation")
+  //     .then((response) => response.json())
+  //     .then((data) =>
+  //       this.setState({
+  //         tweets: data,
+  //       })
+  //     )
+  //     .catch((error) => console.log(error));
+  // }
+
   componentDidMount() {
-    fetch("/api/tweets/Playstation")
-      .then((response) => response.json())
-      .then((data) =>
-        this.setState({
-          tweets: data,
-        })
-      )
-      .catch((error) => console.log(error));
+    fetch('/api/twitter')
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.log(error));
   }
 
   render() {
