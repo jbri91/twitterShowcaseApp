@@ -57,25 +57,30 @@ class App extends React.Component {
     }
   };
 
-  // componentDidMount() {
-  //   fetch("/api/tweets/Playstation")
-  //     .then((response) => response.json())
-  //     .then((data) =>
-  //       this.setState({
-  //         tweets: data,
-  //       })
-  //     )
-  //     .catch((error) => console.log(error));
-  // }
 
   componentDidMount() {
-    fetch('/api/twitter')
-    .then((response) => response.json())
-    .then((data) => console.log(data))
+    Promise.all([
+    fetch('/api/elonmusk'),
+    fetch('/api/dazblack'),
+    fetch('/api/dalailama'),
+    fetch('/api/adamTweets'),
+    
+  ])
+  .then(function (responses) {
+    return Promise.all(responses.map(function (response) {
+      return response.json();
+    }))
+  })
+    .then((data) => this.setState({
+      tweets: data,
+    })
+    )
     .catch((error) => console.log(error));
+
   }
 
   render() {
+    console.log(this.state.tweets)
     return (
       <BrowserRouter>
         <Navigationbar />

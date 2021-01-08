@@ -11,25 +11,32 @@ function Random(props) {
     alignItems: "center",
     flexDirection: "row",
   };
-
-  for (let i = 0; i < props.tweets.length; i++) {
-    randomUserCard.push(
-      <TwitterCard
-        key={props.tweets[i].id}
-        name={props.tweets[i].name}
-        userName={props.tweets[i].userName}
-        tweet={props.tweets[i].tweet}
-        comments={props.tweets[i].comments}
-        retweets={props.tweets[i].retweets}
-        likes={props.tweets[i].likes}
-        image={props.tweets[i].image}
-      />
-    );
-  }
+// console.log(props.tweets.statuses)
+  // for (let i = 0; i < props.tweets.statuses.length; i++) {
+  //   randomUserCard.push(
+  //     <TwitterCard
+  //       key={props.tweets.statuses[i].id}
+  //       name={props.tweets.statuses[i].user.name}
+  //       userName={props.tweets.statuses[i].user.screen_name}
+  //       tweet={props.tweets.statuses[i].text}
+  //       // comments={props.tweets.statuses[i].comments}
+  //       retweets={props.tweets.statuses[i].retweet_count}
+  //       likes={props.tweets.statuses[i].favorite_count}
+  //       // image={props.tweets[i].image}
+  //     />
+  //   );
+  // }
 
   return (
     <div className="random" style={cardStyle}>
       {randomUserCard}
+      <TwitterCard 
+      name={props.tweets.statuses[0].user.name}
+      userName={props.tweets.statuses[0].user.screen_name}
+      tweet={props.tweets.statuses[0].text}
+      retweets={props.tweets.statuses[0].retweet_count}
+      likes={props.tweets.statuses[0].favorite_count}
+      />
     </div>
   );
 }
