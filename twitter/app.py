@@ -21,6 +21,11 @@ dazTweets = dazTweets.json()
 dalaiTweets = dalaiTweets.json()
 adamTweets = adamTweets.json()
 
+userPayload ={'q': 'Elon Musk', 'page':'1', 'count':"5"}
+elonMusk = requests.get('https://api.twitter.com/1.1/users/search/.json', headers=headers, params=userPayload)
+elonMusk = elonMusk.json()
+
+print(elonMusk)
 
 class ElonTweets(Resource):
     def get(self):

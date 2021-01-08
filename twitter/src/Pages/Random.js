@@ -31,12 +31,34 @@ function Random(props) {
     <div className="random" style={cardStyle}>
       {randomUserCard}
       <TwitterCard 
-      name={props.tweets.statuses[0].user.name}
-      userName={props.tweets.statuses[0].user.screen_name}
-      tweet={props.tweets.statuses[0].text}
-      retweets={props.tweets.statuses[0].retweet_count}
-      likes={props.tweets.statuses[0].favorite_count}
+      name={props.tweets[0].statuses[0].user.name}
+      userName={props.tweets[0].statuses[0].user.screen_name}
+      tweet={props.tweets[0].statuses[0].text}
+      retweets={props.tweets[0].statuses[0].retweet_count}
+      likes={props.tweets[0].statuses[0].favorite_count}
       />
+       <TwitterCard 
+      name={props.tweets[1].statuses[0].user.name}
+      userName={props.tweets[1].statuses[0].user.screen_name}
+      tweet={props.tweets[1].statuses[0].text}
+      retweets={props.tweets[1].statuses[0].retweet_count}
+      likes={props.tweets[1].statuses[0].favorite_count}
+      />
+       <TwitterCard 
+      name={props.tweets[2].statuses[0].user.name}
+      userName={props.tweets[2].statuses[0].user.screen_name}
+      tweet={props.tweets[2].statuses[0].text}
+      retweets={props.tweets[2].statuses[0].retweet_count}
+      likes={props.tweets[2].statuses[0].favorite_count}
+      />
+       <TwitterCard 
+      name={props.tweets[3].statuses[0].user.name}
+      userName={props.tweets[3].statuses[0].user.screen_name}
+      tweet={props.tweets[3].statuses[0].text}
+      retweets={props.tweets[3].statuses[0].retweet_count}
+      likes={props.tweets[3].statuses[0].favorite_count}
+      />
+      
     </div>
   );
 }
