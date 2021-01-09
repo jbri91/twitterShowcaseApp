@@ -60,11 +60,8 @@ class App extends React.Component {
 
   componentDidMount() {
     Promise.all([
-    fetch('/api/elonmusk'),
-    fetch('/api/dazblack'),
-    fetch('/api/dalailama'),
-    fetch('/api/adamTweets'),
-    
+    fetch('/api/elonmusk')
+
   ])
   .then(function (responses) {
     return Promise.all(responses.map(function (response) {
