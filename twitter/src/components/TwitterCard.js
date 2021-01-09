@@ -9,11 +9,12 @@ import Settings from "../Images/Settings.png";
 import BlueCheck from "../Images/BlueCheck.png";
 
 function TwitterCard(props) {
+  console.log(props)
   return (
     <div>
       <Card style={{ width: "35rem", margin: "35px" }}>
         <Card.Body>
-          <img style={{ borderRadius: "50%" }} src={props.image}></img>
+          <img alt='Profile' style={{ borderRadius: "50%" }} src={props.image}></img>
           <img
             alt="setting"
             variant="top"
@@ -21,7 +22,7 @@ function TwitterCard(props) {
             style={{ marginLeft: "450px" }}
           />
           <Card.Title style={{ fontSize: "15px", fontWeight: "bolder" }}>
-            {props.name} <img alt="blue check" variant="top" src={BlueCheck} />
+            {props.name} { props.verified ? <img alt="blue check" variant="top" src={BlueCheck} /> : null}
             <p style={{ fontSize: "15px", color: "gray" }}>@{props.userName}</p>
           </Card.Title>
           <Card.Text>{props.tweet}</Card.Text>
