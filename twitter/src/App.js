@@ -17,6 +17,12 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.alternateSubmit = this.alternateSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    console.log()
   }
 
   handleChange(e) {
@@ -57,31 +63,31 @@ class App extends React.Component {
     }
   };
 
-
   componentDidMount() {
     Promise.all([
-    fetch('/api/elonmusk'),
-    fetch('/api/timferris'),
-    fetch('/api/dalailama'),
-    fetch('/api/adamgrant'),
-    fetch('/api/neilpatel')
-
-  ])
-  .then(function (responses) {
-    return Promise.all(responses.map(function (response) {
-      return response.json();
-    }))
-  })
-    .then((data) => this.setState({
-      tweets: data,
-    })
-    )
-    .catch((error) => console.log(error));
-
+      fetch("/api/elonmusk"),
+      fetch("/api/timferris"),
+      fetch("/api/dalailama"),
+      fetch("/api/adamgrant"),
+      fetch("/api/neilpatel"),
+    ])
+      .then(function (responses) {
+        return Promise.all(
+          responses.map(function (response) {
+            return response.json();
+          })
+        );
+      })
+      .then((data) =>
+        this.setState({
+          tweets: data,
+        })
+      )
+      .catch((error) => console.log(error));
   }
 
   render() {
-    console.log(this.state.tweets)
+    console.log(this.state.tweets);
     return (
       <BrowserRouter>
         <Navigationbar />
@@ -90,7 +96,9 @@ class App extends React.Component {
           <Route path="/" component={Home} exact />
           <Route
             path="/random"
-            render={() => <Random tweets={this.state.tweets} />}
+            render={() => (
+              <Random handleClick={this.handleClick} tweets={this.state.tweets} />
+            )}
           />
           <Route
             path="/search"

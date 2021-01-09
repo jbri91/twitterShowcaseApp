@@ -11,8 +11,8 @@ import BlueCheck from "../Images/BlueCheck.png";
 function TwitterCard(props) {
   console.log(props)
   return (
-    <div>
-      <Card style={{ width: "35rem", margin: "35px" }}>
+    <div >
+      <Card id={props.id} style={{ width: "35rem", margin: "35px" }}>
         <Card.Body>
           <img alt='Profile' style={{ borderRadius: "50%" }} src={props.image}></img>
           <img
