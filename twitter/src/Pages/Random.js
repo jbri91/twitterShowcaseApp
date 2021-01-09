@@ -20,7 +20,8 @@ function Random(props) {
   let r5 = Math.floor(Math.random() * props.tweets[4].statuses.length)
   
   return (
-    <div onClick={props.handleClick} className="random" style={cardStyle}>
+    <div  className="random" style={cardStyle}>
+      <div onClick={props.handleClick}>
       <TwitterCard
       value='r1'
       name={props.tweets[0].statuses[r1].user.name}
@@ -32,6 +33,7 @@ function Random(props) {
       verified={props.tweets[0].statuses[r1].user.verified}
       url={props.tweets[0].statuses[r1].user.url}
       /> 
+      </div>
        <TwitterCard 
        value='r2'
       name={props.tweets[1].statuses[r2].user.name}

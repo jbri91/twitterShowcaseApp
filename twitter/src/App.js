@@ -13,6 +13,7 @@ class App extends React.Component {
       tweets: [],
       value: "",
       tweetFinder: [],
+      random: null,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -20,9 +21,15 @@ class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  min = 0;
+  max = 2
+
   handleClick(e) {
-    e.preventDefault();
-    console.log()
+    e.preventDefault()
+    console.log('Work?')
+    this.setState({
+      random: this.min + (Math.random() * (this.max - this.min))
+    })
   }
 
   handleChange(e) {
