@@ -22,6 +22,7 @@ function Random(props) {
       tweet={props.tweets[0].statuses[r].text}
       retweets={props.tweets[0].statuses[r].retweet_count}
       likes={props.tweets[0].statuses[r].favorite_count}
+      image={props.tweets[0].statuses[r].user.profile_image_url_https}
       />
     </div>
   );
