@@ -13,7 +13,7 @@ class App extends React.Component {
       tweets: [],
       value: "",
       tweetFinder: [],
-      random: null,
+      random: Math.floor(Math.random() * 20),
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -21,13 +21,11 @@ class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  min = 0;
-  max = 2
-
+  
   handleClick(e) {
     e.preventDefault()
     this.setState({
-      random: this.min + (Math.random() * (this.max - this.min))
+      random: this.state.random
     })
   }
 
@@ -101,7 +99,9 @@ class App extends React.Component {
           <Route
             path="/random"
             render={() => (
-              <Random handleClick={this.handleClick} tweets={this.state.tweets} />
+              <Random handleClick={this.handleClick} 
+              random={this.state.random}
+              tweets={this.state.tweets} />
             )}
           />
           <Route
