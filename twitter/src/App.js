@@ -26,7 +26,6 @@ class App extends React.Component {
 
   handleClick(e) {
     e.preventDefault()
-    console.log('Work?')
     this.setState({
       random: this.min + (Math.random() * (this.max - this.min))
     })
@@ -41,12 +40,10 @@ class App extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     let currentValue = this.state.value;
-    fetch(`/api/tweetUser/${currentValue}`)
+    fetch(`/api/${currentValue}`)
       .then((response) => response.json())
       .then((data) =>
-        this.setState({
-          value: data,
-        })
+       console.log(data)
       )
       .catch((error) => console.log(error));
   };

@@ -13,69 +13,60 @@ function Random(props) {
   };
   
   
-  let r1 = Math.floor(Math.random() * props.tweets[0].statuses.length)
-  let r2 = Math.floor(Math.random() * props.tweets[1].statuses.length)
-  let r3 = Math.floor(Math.random() * props.tweets[2].statuses.length)
-  let r4 = Math.floor(Math.random() * props.tweets[3].statuses.length)
-  let r5 = Math.floor(Math.random() * props.tweets[4].statuses.length)
-  
+  let r = Math.floor(Math.random() * props.tweets[0].statuses.length)
+ 
   return (
     <div  className="random" style={cardStyle}>
       <div onClick={props.handleClick}>
       <TwitterCard
-      value='r1'
-      name={props.tweets[0].statuses[r1].user.name}
-      userName={props.tweets[0].statuses[r1].user.screen_name}
-      tweet={props.tweets[0].statuses[r1].text}
-      retweets={props.tweets[0].statuses[r1].retweet_count}
-      likes={props.tweets[0].statuses[r1].favorite_count}
-      image={props.tweets[0].statuses[r1].user.profile_image_url_https}
-      verified={props.tweets[0].statuses[r1].user.verified}
-      url={props.tweets[0].statuses[r1].user.url}
+      name={props.tweets[0].statuses[r].user.name}
+      userName={props.tweets[0].statuses[r].user.screen_name}
+      tweet={props.tweets[0].statuses[r].text}
+      retweets={props.tweets[0].statuses[r].retweet_count}
+      likes={props.tweets[0].statuses[r].favorite_count}
+      image={props.tweets[0].statuses[r].user.profile_image_url_https}
+      verified={props.tweets[0].statuses[r].user.verified}
+      url={props.tweets[0].statuses[r].user.url}
       /> 
       </div>
        <TwitterCard 
-       value='r2'
-      name={props.tweets[1].statuses[r2].user.name}
-      userName={props.tweets[1].statuses[r2].user.screen_name}
-      tweet={props.tweets[1].statuses[r2].text}
-      retweets={props.tweets[1].statuses[r2].retweet_count}
-      likes={props.tweets[1].statuses[r2].favorite_count}
-      image={props.tweets[1].statuses[r2].user.profile_image_url_https}
-      verified={props.tweets[1].statuses[r2].user.verified}
-      url={props.tweets[1].statuses[r2].user.url}
+      name={props.tweets[1].statuses[r].user.name}
+      userName={props.tweets[1].statuses[r].user.screen_name}
+      tweet={props.tweets[1].statuses[r].text}
+      retweets={props.tweets[1].statuses[r].retweet_count}
+      likes={props.tweets[1].statuses[r].favorite_count}
+      image={props.tweets[1].statuses[r].user.profile_image_url_https}
+      verified={props.tweets[1].statuses[r].user.verified}
+      url={props.tweets[1].statuses[r].user.url}
       /> <TwitterCard 
-      value='r3'
-      name={props.tweets[2].statuses[r3].user.name}
-      userName={props.tweets[2].statuses[r3].user.screen_name}
-      tweet={props.tweets[2].statuses[r3].text}
-      retweets={props.tweets[2].statuses[r3].retweet_count}
-      likes={props.tweets[2].statuses[r3].favorite_count}
-      image={props.tweets[2].statuses[r3].user.profile_image_url_https}
-      verified={props.tweets[2].statuses[r3].user.verified}
-      url={props.tweets[2].statuses[r3].user.url}
+      name={props.tweets[2].statuses[r].user.name}
+      userName={props.tweets[2].statuses[r].user.screen_name}
+      tweet={props.tweets[2].statuses[r].text}
+      retweets={props.tweets[2].statuses[r].retweet_count}
+      likes={props.tweets[2].statuses[r].favorite_count}
+      image={props.tweets[2].statuses[r].user.profile_image_url_https}
+      verified={props.tweets[2].statuses[r].user.verified}
+      url={props.tweets[2].statuses[r].user.url}
       />
        <TwitterCard 
-       value='r4'
-      name={props.tweets[3].statuses[r4].user.name}
-      userName={props.tweets[3].statuses[r4].user.screen_name}
-      tweet={props.tweets[3].statuses[r4].text}
-      retweets={props.tweets[3].statuses[r4].retweet_count}
-      likes={props.tweets[3].statuses[r4].favorite_count}
-      image={props.tweets[3].statuses[r4].user.profile_image_url_https}
-      verified={props.tweets[3].statuses[r4].user.verified}
-      url={props.tweets[3].statuses[r4].user.url}
+      name={props.tweets[3].statuses[r].user.name}
+      userName={props.tweets[3].statuses[r].user.screen_name}
+      tweet={props.tweets[3].statuses[r].text}
+      retweets={props.tweets[3].statuses[r].retweet_count}
+      likes={props.tweets[3].statuses[r].favorite_count}
+      image={props.tweets[3].statuses[r].user.profile_image_url_https}
+      verified={props.tweets[3].statuses[r].user.verified}
+      url={props.tweets[3].statuses[r].user.url}
       />
        <TwitterCard 
-       value='r5'
-      name={props.tweets[4].statuses[r5].user.name}
-      userName={props.tweets[4].statuses[r5].user.screen_name}
-      tweet={props.tweets[4].statuses[r5].text}
-      retweets={props.tweets[4].statuses[r5].retweet_count}
-      likes={props.tweets[4].statuses[r5].favorite_count}
-      image={props.tweets[4].statuses[r5].user.profile_image_url_https}
-      verified={props.tweets[4].statuses[r5].user.verified}
-      url={props.tweets[4].statuses[r5].user.url}
+      name={props.tweets[4].statuses[r].user.name}
+      userName={props.tweets[4].statuses[r].user.screen_name}
+      tweet={props.tweets[4].statuses[r].text}
+      retweets={props.tweets[4].statuses[r].retweet_count}
+      likes={props.tweets[4].statuses[r].favorite_count}
+      image={props.tweets[4].statuses[r].user.profile_image_url_https}
+      verified={props.tweets[4].statuses[r].user.verified}
+      url={props.tweets[4].statuses[r].user.url}
       />
     </div>
   );

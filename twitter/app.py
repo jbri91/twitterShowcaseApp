@@ -9,11 +9,12 @@ tkn = 'Bearer AAAAAAAAAAAAAAAAAAAAAPy5LAEAAAAAGLzQdm7Geimz2mueyGQCRlJE2wg%3DtHF2
 
 
 
-payload = {'q':'from:elonmusk', 'result_type':'recent'}
-payload2 = {'q':'from:tferriss', 'result_type':'recent'}
-payload3 = {'q':'from:DalaiLama', 'result_type':'recent'}
-payload4 = {'q':'from:AdamMGrant', 'result_type':'recent'}
-payload5 = {'q':'from:neilpatel', 'result_type':'recent'}
+payload = {'q':'from:elonmusk', 'result_type':'recent', 'count': 20}
+payload2 = {'q':'from:tferriss', 'result_type':'recent', 'count': 20}
+payload3 = {'q':'from:TEDtalks', 'result_type':'recent', 'count': 20}
+payload4 = {'q':'from:gruber', 'result_type':'recent', 'count': 20}
+payload5 = {'q':'from:nasa', 'result_type':'recent', 'count': 20}
+payload6 = {'q':'from:adammgrant', 'result_type':'recent', 'count': 20}
 
 headers = {'Authorization': tkn, 'Accept' : 'application/json', 'Content-Type':'application/json'}
 elonMusk = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()
@@ -23,6 +24,12 @@ dalaiLama = requests.get('https://api.twitter.com/1.1/search/tweets.json', param
 adamGrant = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload4, headers=headers).json()
 neilPatel = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload5, headers=headers).json()
 
+searchUser = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload6, headers=headers).json()
+
+
+class SearchUser(Resource):
+    def get(self, user):
+        return jsonify(searchUser)
 
 class ElonTweets(Resource):
     def get(self):
@@ -44,6 +51,8 @@ class NeilTweets(Resource):
     def get(self):
         return jsonify(neilPatel)
 
+
+api.add_resource(SearchUser, '/api/<string:user>')
 api.add_resource(ElonTweets, '/api/elonmusk')
 api.add_resource(TimTweets, '/api/timferris')
 api.add_resource(DalaiTweets, '/api/dalailama')
