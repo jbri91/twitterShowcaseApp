@@ -1,67 +1,65 @@
 from flask import Flask, jsonify
-from flask_restful import Api, Resource, reqparse
+from flask_restful import Api, Resource
 app = Flask(__name__)
 api = Api(app)
+import requests
+import json
 
-tweets =[
-    {
-    'name': 'MrBeast',
-    'userName': '@MrBeastsYT',
-    'tweet': 'I see your tweets and I’m trying to double and triple the amount of restaurants asap! I want you all to be able to try a MrBeast Burgers 🥺',
-    'comments': '11.2k',
-    'retweets': '908',
-    'likes': '46K',
-    'image': '',
-    'id': '1',
-    },
-    {
-    'name': 'Elon Musk',
-    'userName': '@elonmusk',
-    'tweet': 'Bitcoin is my safe word',
-    'comments': '5.5K',
-    'retweets': '18.5k',
-    'likes': '178.5K',
-    'image': '',
-    'id': '2',
-    },
-    {
-    'name': 'Ninja',
-    'userName': '@Ninja',
-    'tweet': 'Ninja skins available today in @FallGuysGame',
-    'comments': '552',
-    'retweets': '681',
-    'likes': '27.6K',
-    'image': '',
-    'id': '3',
-    },
-    {
-    'name': 'Playstation',
-    'userName': '@Playstation',
-    'tweet': 'See how PlayStation celebrated PS5’s global launch with iconic buildings and popular sites around the world: http://play.st/2ISNItz',
-    'comments': '4K',
-    'retweets': '5K',
-    'likes': '19.1K',
-    'image': '',
-    'id': '4',
-    }
-]
-
-class Tweets(Resource):
-    def get(self, name):
-        return tweets
+tkn = 'Bearer AAAAAAAAAAAAAAAAAAAAAPy5LAEAAAAAGLzQdm7Geimz2mueyGQCRlJE2wg%3DtHF24CFQf9D984qDYqf0vIIWItJ8ZxzfzvSktaS3qWHvfQG5uf'
 
 
-class TweetUser(Resource):
-    def get(self, name):
-        for tweet in tweets:
-            if(name == tweet['name']):
-                return tweet, 200
-        return 'User not found', 404
 
-api.add_resource(Tweets, '/api/tweets/<string:name>')
+payload = {'q':'from:elonmusk', 'result_type':'recent', 'count': 20}
+payload2 = {'q':'from:tferriss', 'result_type':'recent', 'count': 20}
+payload3 = {'q':'from:TEDtalks', 'result_type':'recent', 'count': 20}
+payload4 = {'q':'from:gruber', 'result_type':'recent', 'count': 20}
+payload5 = {'q':'from:nasa', 'result_type':'recent', 'count': 20}
+payload6 = {'q':'from:adammgrant', 'result_type':'recent', 'count': 20}
 
-api.add_resource(TweetUser, '/api/tweetUser/<string:name>')
+headers = {'Authorization': tkn, 'Accept' : 'application/json', 'Content-Type':'application/json'}
+elonMusk = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()
 
-app.run(debug=True)
+timFerris = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload2, headers=headers).json()
+dalaiLama = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload3, headers=headers).json()
+adamGrant = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload4, headers=headers).json()
+neilPatel = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload5, headers=headers).json()
+
+searchUser = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload6, headers=headers).json()
+
+
+class SearchUser(Resource):
+    def get(self, user):
+        return jsonify(searchUser)
+
+class ElonTweets(Resource):
+    def get(self):
+        return jsonify(elonMusk)
+
+class TimTweets(Resource):
+    def get(self):
+        return jsonify(timFerris)
+
+class DalaiTweets(Resource):
+    def get(self):
+        return jsonify(dalaiLama)
+
+class AdamTweets(Resource):
+    def get(self):
+        return jsonify(adamGrant)
+
+class NeilTweets(Resource):
+    def get(self):
+        return jsonify(neilPatel)
+
+
+api.add_resource(SearchUser, '/api/<string:user>')
+api.add_resource(ElonTweets, '/api/elonmusk')
+api.add_resource(TimTweets, '/api/timferris')
+api.add_resource(DalaiTweets, '/api/dalailama')
+api.add_resource(AdamTweets, '/api/adamgrant')
+api.add_resource(NeilTweets, '/api/neilpatel')
+
+if __name__=="__main__":
+    app.run(debug=True)
 
 

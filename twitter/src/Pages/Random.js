@@ -2,7 +2,6 @@ import React from "react";
 import TwitterCard from "../components/TwitterCard";
 
 function Random(props) {
-  const randomUserCard = [];
   const cardStyle = {
     display: "flex",
     flexWrap: "wrap",
@@ -12,24 +11,29 @@ function Random(props) {
     flexDirection: "row",
   };
 
+  const randomCards = [];
   for (let i = 0; i < props.tweets.length; i++) {
-    randomUserCard.push(
+    randomCards.push(
       <TwitterCard
-        key={props.tweets[i].id}
-        name={props.tweets[i].name}
-        userName={props.tweets[i].userName}
-        tweet={props.tweets[i].tweet}
-        comments={props.tweets[i].comments}
-        retweets={props.tweets[i].retweets}
-        likes={props.tweets[i].likes}
-        image={props.tweets[i].image}
+        key={props.tweets[i].statuses[props.random].user.id}
+        id={props.tweets[i].statuses[props.random].user.id}
+        name={props.tweets[i].statuses[props.random].user.name}
+        userName={props.tweets[i].statuses[props.random].user.screen_name}
+        tweet={props.tweets[i].statuses[props.random].text}
+        retweets={props.tweets[i].statuses[props.random].retweet_count}
+        likes={props.tweets[i].statuses[props.random].favorite_count}
+        image={
+          props.tweets[i].statuses[props.random].user.profile_image_url_https
+        }
+        verified={props.tweets[i].statuses[props.random].user.verified}
+        url={props.tweets[i].statuses[props.random].user.url}
       />
     );
   }
 
   return (
-    <div className="random" style={cardStyle}>
-      {randomUserCard}
+    <div onClick={props.handleClick}  className="random" style={cardStyle}>
+      {randomCards}
     </div>
   );
 }

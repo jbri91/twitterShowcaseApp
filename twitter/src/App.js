@@ -13,10 +13,23 @@ class App extends React.Component {
       tweets: [],
       value: "",
       tweetFinder: [],
+      random: Math.floor(Math.random() * 20),
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.alternateSubmit = this.alternateSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  
+  handleClick(e) {
+    e.preventDefault()
+    let id = e.target.offsetParent.id
+    console.log(id)
+    console.log(this.state.tweets) 
+    // this.setState({
+    //   random: this.state.random
+    // })
   }
 
   handleChange(e) {
@@ -28,12 +41,10 @@ class App extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     let currentValue = this.state.value;
-    fetch(`/api/tweetUser/${currentValue}`)
+    fetch(`/api/${currentValue}`)
       .then((response) => response.json())
       .then((data) =>
-        this.setState({
-          value: data,
-        })
+       console.log(data)
       )
       .catch((error) => console.log(error));
   };
@@ -58,8 +69,20 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch("/api/tweets/Playstation")
-      .then((response) => response.json())
+    Promise.all([
+      fetch("/api/elonmusk"),
+      fetch("/api/timferris"),
+      fetch("/api/dalailama"),
+      fetch("/api/adamgrant"),
+      fetch("/api/neilpatel"),
+    ])
+      .then(function (responses) {
+        return Promise.all(
+          responses.map(function (response) {
+            return response.json();
+          })
+        );
+      })
       .then((data) =>
         this.setState({
           tweets: data,
@@ -68,8 +91,8 @@ class App extends React.Component {
       .catch((error) => console.log(error));
   }
 
-
   render() {
+    console.log(this.state.tweets);
     return (
       <BrowserRouter>
         <Navigationbar />
@@ -78,7 +101,11 @@ class App extends React.Component {
           <Route path="/" component={Home} exact />
           <Route
             path="/random"
-            render={() => <Random tweets={this.state.tweets} />}
+            render={() => (
+              <Random handleClick={this.handleClick} 
+              random={this.state.random}
+              tweets={this.state.tweets} />
+            )}
           />
           <Route
             path="/search"
