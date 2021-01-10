@@ -24,9 +24,12 @@ class App extends React.Component {
   
   handleClick(e) {
     e.preventDefault()
-    this.setState({
-      random: this.state.random
-    })
+    let id = e.target.offsetParent.id
+    console.log(id)
+    console.log(this.state.tweets) 
+    // this.setState({
+    //   random: this.state.random
+    // })
   }
 
   handleChange(e) {

@@ -2,7 +2,6 @@ import React from "react";
 import TwitterCard from "../components/TwitterCard";
 
 function Random(props) {
-  console.log(props);
   const cardStyle = {
     display: "flex",
     flexWrap: "wrap",
@@ -16,6 +15,8 @@ function Random(props) {
   for (let i = 0; i < props.tweets.length; i++) {
     randomCards.push(
       <TwitterCard
+        key={props.tweets[i].statuses[props.random].user.id}
+        id={props.tweets[i].statuses[props.random].user.id}
         name={props.tweets[i].statuses[props.random].user.name}
         userName={props.tweets[i].statuses[props.random].user.screen_name}
         tweet={props.tweets[i].statuses[props.random].text}
@@ -31,7 +32,7 @@ function Random(props) {
   }
 
   return (
-    <div className="random" style={cardStyle}>
+    <div onClick={props.handleClick}  className="random" style={cardStyle}>
       {randomCards}
     </div>
   );
