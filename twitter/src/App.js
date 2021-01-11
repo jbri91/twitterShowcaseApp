@@ -10,7 +10,19 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tweets: [],
+      tweets: [
+        {
+          id: "",
+          name: "",
+          userName: "",
+          tweet: "",
+          retweets: "",
+          likes: "",
+          image: "",
+          verified: "",
+          url: "",
+        },
+      ],
       value: "",
       tweetFinder: [],
       random: Math.floor(Math.random() * 20),
@@ -25,10 +37,6 @@ class App extends React.Component {
     e.preventDefault();
     let id = e.target.offsetParent.id;
     console.log(id);
-    console.log(this.state.tweets);
-    // this.setState({
-    //   random: this.state.random
-    // })
   }
 
   handleChange(e) {
@@ -82,7 +90,73 @@ class App extends React.Component {
       })
       .then((data) =>
         this.setState({
-          tweets: data,
+          tweets: [
+            {
+              name: data[0].statuses[this.state.random].user.name,
+              userName: data[0].statuses[this.state.random].user.screen_name,
+              tweet: data[0].statuses[this.state.random].text,
+              retweet: data[0].statuses[this.state.random].retweet_count,
+              likes: data[0].statuses[this.state.random].favorite_count,
+              image:
+                data[0].statuses[this.state.random].user
+                  .profile_image_url_https,
+              verified: data[0].statuses[this.state.random].user.verified,
+              url: data[0].statuses[this.state.random].user.url,
+              id: data[0].statuses[this.state.random].user.id,
+            },
+            {
+              name: data[1].statuses[this.state.random].user.name,
+              userName: data[1].statuses[this.state.random].user.screen_name,
+              tweet: data[1].statuses[this.state.random].text,
+              retweet: data[1].statuses[this.state.random].retweet_count,
+              likes: data[1].statuses[this.state.random].favorite_count,
+              image:
+                data[1].statuses[this.state.random].user
+                  .profile_image_url_https,
+              verified: data[1].statuses[this.state.random].user.verified,
+              url: data[1].statuses[this.state.random].user.url,
+              id: data[1].statuses[this.state.random].user.id,
+            },
+            {
+              name: data[2].statuses[this.state.random].user.name,
+              userName: data[2].statuses[this.state.random].user.screen_name,
+              tweet: data[2].statuses[this.state.random].text,
+              retweet: data[2].statuses[this.state.random].retweet_count,
+              likes: data[2].statuses[this.state.random].favorite_count,
+              image:
+                data[2].statuses[this.state.random].user
+                  .profile_image_url_https,
+              verified: data[2].statuses[this.state.random].user.verified,
+              url: data[2].statuses[this.state.random].user.url,
+              id: data[2].statuses[this.state.random].user.id,
+            },
+            {
+              name: data[3].statuses[this.state.random].user.name,
+              userName: data[3].statuses[this.state.random].user.screen_name,
+              tweet: data[3].statuses[this.state.random].text,
+              retweet: data[3].statuses[this.state.random].retweet_count,
+              likes: data[3].statuses[this.state.random].favorite_count,
+              image:
+                data[3].statuses[this.state.random].user
+                  .profile_image_url_https,
+              verified: data[3].statuses[this.state.random].user.verified,
+              url: data[3].statuses[this.state.random].user.url,
+              id: data[3].statuses[this.state.random].user.id,
+            },
+            {
+              name: data[4].statuses[this.state.random].user.name,
+              userName: data[4].statuses[this.state.random].user.screen_name,
+              tweet: data[4].statuses[this.state.random].text,
+              retweet: data[4].statuses[this.state.random].retweet_count,
+              likes: data[4].statuses[this.state.random].favorite_count,
+              image:
+                data[4].statuses[this.state.random].user
+                  .profile_image_url_https,
+              verified: data[4].statuses[this.state.random].user.verified,
+              url: data[4].statuses[this.state.random].user.url,
+              id: data[4].statuses[this.state.random].user.id,
+            },
+          ],
         })
       )
       .catch((error) => console.log(error));
@@ -103,7 +177,7 @@ class App extends React.Component {
               <Random
                 handleClick={this.handleClick}
                 random={this.state.random}
-                tweets={this.state.tweets} 
+                tweets={this.state.tweets}
               />
             )}
           />

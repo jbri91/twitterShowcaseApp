@@ -38,7 +38,7 @@ function TwitterCard(props) {
               <img alt="comment" variant="top" src={Comment} /> {props.comments}
             </p>
             <p>
-              <img alt="retweet" variant="top" src={Retweet} /> {props.retweets}
+              <img alt="retweet" variant="top" src={Retweet} /> {props.retweet}
             </p>
             <p>
               <img alt="heart" variant="top" src={HeartImage} /> {props.likes}
