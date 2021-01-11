@@ -4,9 +4,7 @@ app = Flask(__name__)
 api = Api(app)
 import requests
 import json
-
-tkn = 'Bearer AAAAAAAAAAAAAAAAAAAAAPy5LAEAAAAAGLzQdm7Geimz2mueyGQCRlJE2wg%3DtHF24CFQf9D984qDYqf0vIIWItJ8ZxzfzvSktaS3qWHvfQG5uf'
-
+from config import token_secret
 
 
 payload = {'q':'from:elonmusk', 'result_type':'recent', 'count': 20}
@@ -16,7 +14,7 @@ payload4 = {'q':'from:gruber', 'result_type':'recent', 'count': 20}
 payload5 = {'q':'from:nasa', 'result_type':'recent', 'count': 20}
 payload6 = {'q':'from:adammgrant', 'result_type':'recent', 'count': 20}
 
-headers = {'Authorization': tkn, 'Accept' : 'application/json', 'Content-Type':'application/json'}
+headers = {'Authorization': token_secret, 'Accept' : 'application/json', 'Content-Type':'application/json'}
 elonMusk = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()
 
 timFerris = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload2, headers=headers).json()

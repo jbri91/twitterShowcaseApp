@@ -91,9 +91,6 @@ class App extends React.Component {
   render() {
     console.log(this.state.tweets);
 
-
-
-
     return (
       <BrowserRouter>
         <Navigationbar />
@@ -106,20 +103,7 @@ class App extends React.Component {
               <Random
                 handleClick={this.handleClick}
                 random={this.state.random}
-                tweets={this.state.tweets}
-
-              //   randomCards={[{
-              //     name: this.state.tweets[0].statuses[this.state.random].user.name,
-              //     userName: this.state.tweets[0].statuses[this.state.random].user.screen_name,
-              //     tweet: this.state.tweets[0].statuses[this.state.random].text,
-              //     retweets: this.state.tweets[0].statuses[this.state.random].retweet_count,
-              //     likes: this.state.tweets[0].statuses[this.state.random].favorite_count,
-              //     image: this.state.tweets[0].statuses[this.state.random].user.profile_image_url_https,
-              //     verified: this.state.tweets[0].statuses[this.state.random].user.verified,
-              //     url: this.state.tweets[0].statuses[this.state.random].user.url,
-              //     id: this.state.tweets[0].statuses[this.state.random].user.id
-              //   }
-              // ]}
+                tweets={this.state.tweets} 
               />
             )}
           />
