@@ -12,29 +12,24 @@ function Random(props) {
     flexDirection: "row",
   };
 
-  const randomCards = [];
-  for (let i = 0; i < props.tweets.length; i++) {
-    randomCards.push(
-      <TwitterCard
-        key={i}
-        id={props.tweets[i].id}
-        name={props.tweets[i].name}
-        userName={props.tweets[i].userName}
-        tweet={props.tweets[i].tweet}
-        retweet={props.tweets[i].retweet}
-        likes={props.tweets[i].likes}
-        image={props.tweets[i].image}
-        verified={props.tweets[i].verified}
-        url={props.tweets[i].url}
-      />
-    );
-  }
-  // console.log(randomCards);
+  
+
+
+
   return (
     <div onClick={props.handleClick} className="random" style={cardStyle}>
-     {randomCards}
+     <TwitterCard
+        name={props.name}
+        userName={props.userName}
+        verified={props.verified}
+        image={props.image}
+        url={props.url}
+        id={props.id}
+        retweet={props.retweet}
+        tweet={props.tweet}
+        likes={props.likes}
+      />
     </div>
   );
 }
-
 export default Random;

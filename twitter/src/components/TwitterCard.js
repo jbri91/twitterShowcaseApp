@@ -9,7 +9,7 @@ import Settings from "../Images/Settings.png";
 import BlueCheck from "../Images/BlueCheck.png";
 
 function TwitterCard(props) {
-  console.log(props)
+
   return (
     <div onClick={props.handleClick}>
       <Card id={props.id} style={{ width: "35rem", margin: "35px" }}>
