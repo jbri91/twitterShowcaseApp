@@ -19,15 +19,15 @@ function Random(props) {
   return (
     <div onClick={props.handleClick} className="random" style={cardStyle}>
      <TwitterCard
-        name={props.name}
-        userName={props.userName}
-        verified={props.verified}
-        image={props.image}
-        url={props.url}
-        id={props.id}
-        retweet={props.retweet}
-        tweet={props.tweet}
-        likes={props.likes}
+        name={props.randomCard1[0].user.name}
+        userName={props.randomCard1[0].user.screen_name}
+        verified={props.randomCard1[0].user.verified}
+        image={props.randomCard1[0].user.profile_image_url_https}
+        url={props.randomCard1[0].user.url}
+        id={props.randomCard1[0].user.id}
+        retweet={props.randomCard1[0].retweet_count} 
+        tweet={props.randomCard1[0].text}
+        likes={props.randomCard1[0].user.favourites_count}
       />
     </div>
   );

@@ -78,21 +78,20 @@ class App extends React.Component {
       })
       .then((data) =>
         this.setState({
-          tweets: [{
-            randomCard1:data[0],
-            randomCard2:data[1],
-            randomCard3:data[2],
-            randomCard4:data[3],
-            randomCard5:data[4],
-
-          }]
+          tweets: [
+            data[0].statuses,
+            data[1].statuses,
+            data[2].statuses,
+            data[3].statuses,
+            data[4].statuses
+          ]
         })
       )
       .catch((error) => console.log(error));
   }
 
   render() {
-    console.log(this.state.tweets);
+    console.log(this.state.tweets[0]);
 
     return (
       <BrowserRouter>
@@ -107,12 +106,7 @@ class App extends React.Component {
                 handleClick={this.handleClick}
                 random={this.state.random}
                 tweets={this.state.tweets}
-            
-                randomCard1={this.state.tweets}
-                randomCard2={this.state.tweets}
-                randomCard3={this.state.tweets}
-                randomCard4={this.state.tweets}
-                randomCard5={this.state.tweets}
+                randomCard1={this.state.tweets[0]}              
 
 
 
