@@ -13,19 +13,13 @@ class App extends React.Component {
       tweets: [],
       value: "",
       tweetFinder: [],
-      random: Math.floor(Math.random() * 20),
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.alternateSubmit = this.alternateSubmit.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    let id = e.target.offsetParent.id;
-    console.log(id);
-  }
 
   handleChange(e) {
     this.setState({
@@ -63,7 +57,7 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state.tweets[0]);
+   
 
     return (
       <BrowserRouter>
@@ -74,11 +68,7 @@ class App extends React.Component {
           <Route
             path="/random"
             render={() => (
-              <Random
-                handleClick={this.handleClick}
-                random={this.state.random}
-                tweets={this.state.tweets}
-                randomCard1={this.state.tweets[0]}              
+              <Random           
 
 
 
