@@ -61,34 +61,6 @@ class App extends React.Component {
     }
   };
 
-  componentDidMount() {
-    Promise.all([
-      fetch("/api/elonmusk"),
-      fetch("/api/timferris"),
-      fetch("/api/tedtalks"),
-      fetch("/api/nasa"),
-      fetch("/api/gruber"),
-    ])
-      .then(function (responses) {
-        return Promise.all(
-          responses.map(function (response) {
-            return response.json();
-          })
-        );
-      })
-      .then((data) =>
-        this.setState({
-          tweets: [
-            data[0].statuses,
-            data[1].statuses,
-            data[2].statuses,
-            data[3].statuses,
-            data[4].statuses
-          ]
-        })
-      )
-      .catch((error) => console.log(error));
-  }
 
   render() {
     console.log(this.state.tweets[0]);

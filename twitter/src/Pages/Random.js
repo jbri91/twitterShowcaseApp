@@ -1,8 +1,23 @@
 import React from "react";
 import TwitterCard from "../components/TwitterCard";
 
-function Random(props) {
-  console.log(props);
+class Random extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      elonTweet: null
+  }
+      
+  }
+
+componentDidMount() {
+
+    fetch("/api/elonmusk").then(re => re.json()).then(data => console.log(data))
+    .catch((error) => console.log(error));
+}
+
+render() {
+  
   const cardStyle = {
     display: "flex",
     flexWrap: "wrap",
@@ -12,24 +27,10 @@ function Random(props) {
     flexDirection: "row",
   };
 
-  
-
-
-
   return (
-    <div onClick={props.handleClick} className="random" style={cardStyle}>
-     <TwitterCard
-        name={props.randomCard1[0].user.name}
-        userName={props.randomCard1[0].user.screen_name}
-        verified={props.randomCard1[0].user.verified}
-        image={props.randomCard1[0].user.profile_image_url_https}
-        url={props.randomCard1[0].user.url}
-        id={props.randomCard1[0].user.id}
-        retweet={props.randomCard1[0].retweet_count} 
-        tweet={props.randomCard1[0].text}
-        likes={props.randomCard1[0].user.favourites_count}
-      />
+    <div>
+      Hello
     </div>
   );
-}
+}}
 export default Random;
