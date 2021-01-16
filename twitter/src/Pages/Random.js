@@ -18,8 +18,7 @@ class Random extends React.Component {
   
   handleClick(e) {
     e.preventDefault();
-    let id = e.target.offsetParent.id
-
+    let id = e.target.offsetParent.id 
     console.log(id);
   }
 
@@ -28,7 +27,7 @@ class Random extends React.Component {
       .then((re) => re.json())
       .then((tweets) =>
         this.setState({
-          elonTweet: tweets,
+          elonTweet: tweets.statuses[Math.floor(Math.random() * 20)],
         })
       )
       .catch((error) => console.log(error));
@@ -36,7 +35,7 @@ class Random extends React.Component {
       .then((res) => res.json())
       .then((tweets) =>
         this.setState({
-          ferrisTweets: tweets,
+          ferrisTweets: tweets.statuses[Math.floor(Math.random() * 20)],
         })
       )
       .catch((error) => console.log(error));
@@ -44,7 +43,7 @@ class Random extends React.Component {
       .then((res) => res.json())
       .then((tweets) =>
         this.setState({
-          tedTweets: tweets,
+          tedTweets: tweets.statuses[Math.floor(Math.random() * 20)],
         })
       )
       .catch((error) => console.log(error));
@@ -52,7 +51,7 @@ class Random extends React.Component {
       .then((res) => res.json())
       .then((tweets) =>
         this.setState({
-          nasaTweets: tweets,
+          nasaTweets: tweets.statuses[Math.floor(Math.random() * 20)],
         })
       )
       .catch((error) => console.log(error));
@@ -61,7 +60,7 @@ class Random extends React.Component {
       .then((res) => res.json())
       .then((tweets) =>
         this.setState({
-          gruberTweets: tweets,
+          gruberTweets: tweets.statuses[Math.floor(Math.random() * 20)],
         })
       )
       .catch((error) => console.log(error));
@@ -83,13 +82,13 @@ class Random extends React.Component {
           {this.state.elonTweet !== null ? (
             <TwitterCard
               id='1'
-              name={this.state.elonTweet.statuses[0].user.name}
-              userName={this.state.elonTweet.statuses[0].user.screen_name}
-              tweet={this.state.elonTweet.statuses[0].text}
-              retweet={this.state.elonTweet.statuses[0].retweet_count}
-              likes={this.state.elonTweet.statuses[0].favorite_count}
+              name={this.state.elonTweet.user.name}
+              userName={this.state.elonTweet.user.screen_name}
+              tweet={this.state.elonTweet.text}
+              retweet={this.state.elonTweet.retweet_count}
+              likes={this.state.elonTweet.favorite_count}
               image={
-                this.state.elonTweet.statuses[0].user.profile_image_url_https
+                this.state.elonTweet.user.profile_image_url_https
               }
             />
           ) : null}
@@ -97,13 +96,13 @@ class Random extends React.Component {
           {this.state.ferrisTweets !== null ? (
             <TwitterCard
             id='2'
-              name={this.state.ferrisTweets.statuses[0].user.name}
-              userName={this.state.ferrisTweets.statuses[0].user.screen_name}
-              tweet={this.state.ferrisTweets.statuses[0].text}
-              retweet={this.state.ferrisTweets.statuses[0].retweet_count}
-              likes={this.state.ferrisTweets.statuses[0].favorite_count}
+              name={this.state.ferrisTweets.user.name}
+              userName={this.state.ferrisTweets.user.screen_name}
+              tweet={this.state.ferrisTweets.text}
+              retweet={this.state.ferrisTweets.retweet_count}
+              likes={this.state.ferrisTweets.favorite_count}
               image={
-                this.state.ferrisTweets.statuses[0].user.profile_image_url_https
+                this.state.ferrisTweets.user.profile_image_url_https
               }
             />
           ) : null}
@@ -111,13 +110,13 @@ class Random extends React.Component {
           {this.state.tedTweets !== null ? (
             <TwitterCard
             id='3'
-              name={this.state.tedTweets.statuses[0].user.name}
-              userName={this.state.tedTweets.statuses[0].user.screen_name}
-              tweet={this.state.tedTweets.statuses[0].text}
-              retweet={this.state.tedTweets.statuses[0].retweet_count}
-              likes={this.state.tedTweets.statuses[0].favorite_count}
+              name={this.state.tedTweets.user.name}
+              userName={this.state.tedTweets.user.screen_name}
+              tweet={this.state.tedTweets.text}
+              retweet={this.state.tedTweets.retweet_count}
+              likes={this.state.tedTweets.favorite_count}
               image={
-                this.state.tedTweets.statuses[0].user.profile_image_url_https
+                this.state.tedTweets.user.profile_image_url_https
               }
             />
           ) : null}
@@ -125,13 +124,13 @@ class Random extends React.Component {
           {this.state.nasaTweets !== null ? (
             <TwitterCard
             id='4'
-              name={this.state.nasaTweets.statuses[0].user.name}
-              userName={this.state.nasaTweets.statuses[0].user.screen_name}
-              tweet={this.state.nasaTweets.statuses[0].text}
-              retweet={this.state.nasaTweets.statuses[0].retweet_count}
-              likes={this.state.nasaTweets.statuses[0].favorite_count}
+              name={this.state.nasaTweets.user.name}
+              userName={this.state.nasaTweets.user.screen_name}
+              tweet={this.state.nasaTweets.text}
+              retweet={this.state.nasaTweets.retweet_count}
+              likes={this.state.nasaTweets.favorite_count}
               image={
-                this.state.nasaTweets.statuses[0].user.profile_image_url_https
+                this.state.nasaTweets.user.profile_image_url_https
               }
             />
           ) : null}
@@ -139,13 +138,13 @@ class Random extends React.Component {
 {this.state.gruberTweets !== null ? (
             <TwitterCard
             id='5'
-              name={this.state.gruberTweets.statuses[0].user.name}
-              userName={this.state.gruberTweets.statuses[0].user.screen_name}
-              tweet={this.state.gruberTweets.statuses[0].text}
-              retweet={this.state.gruberTweets.statuses[0].retweet_count}
-              likes={this.state.gruberTweets.statuses[0].favorite_count}
+              name={this.state.gruberTweets.user.name}
+              userName={this.state.gruberTweets.user.screen_name}
+              tweet={this.state.gruberTweets.text}
+              retweet={this.state.gruberTweets.retweet_count}
+              likes={this.state.gruberTweets.favorite_count}
               image={
-                this.state.gruberTweets.statuses[0].user.profile_image_url_https
+                this.state.gruberTweets.user.profile_image_url_https
               }
             />
           ) : null}
