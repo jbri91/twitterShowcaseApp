@@ -13,23 +13,13 @@ class App extends React.Component {
       tweets: [],
       value: "",
       tweetFinder: [],
-      random: Math.floor(Math.random() * 20),
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.alternateSubmit = this.alternateSubmit.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    let id = e.target.offsetParent.id;
-    console.log(id);
-    console.log(this.state.tweets);
-    // this.setState({
-    //   random: this.state.random
-    // })
-  }
 
   handleChange(e) {
     this.setState({
@@ -65,31 +55,10 @@ class App extends React.Component {
     }
   };
 
-  componentDidMount() {
-    Promise.all([
-      fetch("/api/elonmusk"),
-      fetch("/api/timferris"),
-      fetch("/api/dalailama"),
-      fetch("/api/adamgrant"),
-      fetch("/api/neilpatel"),
-    ])
-      .then(function (responses) {
-        return Promise.all(
-          responses.map(function (response) {
-            return response.json();
-          })
-        );
-      })
-      .then((data) =>
-        this.setState({
-          tweets: data,
-        })
-      )
-      .catch((error) => console.log(error));
-  }
 
   render() {
-    console.log(this.state.tweets);
+   
+
     return (
       <BrowserRouter>
         <Navigationbar />
@@ -99,10 +68,21 @@ class App extends React.Component {
           <Route
             path="/random"
             render={() => (
-              <Random
-                handleClick={this.handleClick}
-                random={this.state.random}
-                tweets={this.state.tweets}
+              <Random           
+
+
+
+                // name={this.state.tweets[0].statuses[1].user.name}
+                // userName={this.state.tweets[0].statuses[1].user.screen_name}
+                // verified={this.state.tweets[0].statuses[1].user.verified}
+                // image={
+                //   this.state.tweets[0].statuses[1].user.profile_image_url_https
+                // }
+                // url={this.state.tweets[0].statuses[1].user.url}
+                // id={this.state.tweets[0].statuses[1].user.id}
+                // retweet={this.state.tweets[0].statuses[1].retweet_count}
+                // tweet={this.state.tweets[0].statuses[1].text}
+                // likes={this.state.tweets[0].statuses[1].favorite_count}
               />
             )}
           />

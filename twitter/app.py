@@ -5,8 +5,11 @@ api = Api(app)
 import requests
 import json
 from config import token_secret
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> onClick
 
 
 payload = {'q':'from:elonmusk', 'result_type':'recent', 'count': 20}
@@ -17,12 +20,16 @@ payload5 = {'q':'from:nasa', 'result_type':'recent', 'count': 20}
 payload6 = {'q':'from:adammgrant', 'result_type':'recent', 'count': 20}
 
 headers = {'Authorization': token_secret, 'Accept' : 'application/json', 'Content-Type':'application/json'}
+<<<<<<< HEAD
 elonMusk = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()
+=======
+>>>>>>> onClick
 
+elonMusk = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()
 timFerris = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload2, headers=headers).json()
-dalaiLama = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload3, headers=headers).json()
-adamGrant = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload4, headers=headers).json()
-neilPatel = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload5, headers=headers).json()
+tedTalks = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload3, headers=headers).json()
+gruber = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload4, headers=headers).json()
+nasa = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload5, headers=headers).json()
 
 searchUser = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload6, headers=headers).json()
 
@@ -39,25 +46,29 @@ class TimTweets(Resource):
     def get(self):
         return jsonify(timFerris)
 
-class DalaiTweets(Resource):
+class TedTweets(Resource):
     def get(self):
-        return jsonify(dalaiLama)
+        return jsonify(tedTalks)
 
-class AdamTweets(Resource):
-    def get(self):
-        return jsonify(adamGrant)
 
-class NeilTweets(Resource):
+class GruberTweets(Resource):
     def get(self):
-        return jsonify(neilPatel)
+        return jsonify(gruber)
+
+
+class NasaTweets(Resource):
+    def get(self):
+        return jsonify(nasa)
 
 
 api.add_resource(SearchUser, '/api/<string:user>')
+
 api.add_resource(ElonTweets, '/api/elonmusk')
 api.add_resource(TimTweets, '/api/timferris')
-api.add_resource(DalaiTweets, '/api/dalailama')
-api.add_resource(AdamTweets, '/api/adamgrant')
-api.add_resource(NeilTweets, '/api/neilpatel')
+api.add_resource(TedTweets, '/api/tedtalks')
+api.add_resource(NasaTweets, '/api/nasa')
+api.add_resource(GruberTweets, '/api/gruber')
+
 
 if __name__=="__main__":
     app.run(debug=True)

@@ -9,10 +9,10 @@ import Settings from "../Images/Settings.png";
 import BlueCheck from "../Images/BlueCheck.png";
 
 function TwitterCard(props) {
-  console.log(props)
+
   return (
-    <div onClick={props.handleClick}>
-      <Card id={props.id} style={{ width: "35rem", margin: "35px" }}>
+    <div >
+      <Card id={props.id} style={{ width: "35rem", margin: "35px"}} className="shadow-lg p-3 mb-5 bg-white rounded" >
         <Card.Body>
           <img alt='Profile' style={{ borderRadius: "50%" }} src={props.image}></img>
           <img
@@ -38,7 +38,7 @@ function TwitterCard(props) {
               <img alt="comment" variant="top" src={Comment} /> {props.comments}
             </p>
             <p>
-              <img alt="retweet" variant="top" src={Retweet} /> {props.retweets}
+              <img alt="retweet" variant="top" src={Retweet} /> {props.retweet}
             </p>
             <p>
               <img alt="heart" variant="top" src={HeartImage} /> {props.likes}
