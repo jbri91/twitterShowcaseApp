@@ -29,7 +29,7 @@ nasa = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=pay
 class SearchTweet(Resource):
     def get(self, tweet):
         headers = {'Authorization': token_secret, 'Accept' : 'application/json', 'Content-Type':'application/json'}
-        payload = {'q':tweet, 'result_type':'popular', 'count': 5}
+        payload = {'q':tweet, 'result_type':'mixed', 'count': 5}
         searchTweet = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()
         return jsonify(searchTweet)
 

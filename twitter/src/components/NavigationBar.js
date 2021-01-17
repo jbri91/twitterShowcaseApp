@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { NavLink } from "react-router-dom";
 
-function NavigationBar(props) {
+function NavigationBar() {
   return (
     <nav className="navbar navbar-light bg-light navbar-expand-lg fixed-top">
       <a href="#twitter" className="navbar-brand font-weight-bolder">

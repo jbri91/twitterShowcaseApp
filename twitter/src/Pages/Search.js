@@ -32,7 +32,7 @@ class Search extends React.Component {
           tweets: data.statuses,
         })
       )
-      .catch((alert) => alert('Search not found'));
+      .catch((err) => console.log(err));
     } else {
       alert('Please enter a valid username')
     }
@@ -50,7 +50,7 @@ class Search extends React.Component {
           tweetFinder: data.statuses,
         })
       )
-      .catch((alert) => alert('Search was not found'));
+      .catch((err) => console.log(err));
   } else {alert('Please enter a valid search')}
   e.target.reset()
 };
