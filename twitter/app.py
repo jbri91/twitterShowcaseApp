@@ -17,13 +17,14 @@ payload5 = {'q':'from:nasa', 'result_type':'recent', 'count': 20}
 
 
 headers = {'Authorization': token_secret, 'Accept' : 'application/json', 'Content-Type':'application/json'}
-elonMusk = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()
+
 
 elonMusk = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()
 timFerris = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload2, headers=headers).json()
 tedTalks = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload3, headers=headers).json()
 gruber = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload4, headers=headers).json()
 nasa = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload5, headers=headers).json() 
+
 
 class SearchTweet(Resource):
     def get(self, tweet):
@@ -32,6 +33,9 @@ class SearchTweet(Resource):
         searchTweet = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()
         return jsonify(searchTweet)
 
+api.add_resource(SearchTweet, '/api/searchtweet/<string:tweet>')
+
+
 class SearchUser(Resource):
     def get(self, user):
         headers = {'Authorization': token_secret, 'Accept' : 'application/json', 'Content-Type':'application/json'}
@@ -39,38 +43,41 @@ class SearchUser(Resource):
         searchUser = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()        
         return jsonify(searchUser)
 
+api.add_resource(SearchUser, '/api/searchuser/<string:user>')
+
+
 class ElonTweets(Resource):
     def get(self):
         return jsonify(elonMusk)
+
+api.add_resource(ElonTweets, '/api/elonmusk')
 
 class TimTweets(Resource):
     def get(self):
         return jsonify(timFerris)
 
+api.add_resource(TimTweets, '/api/timferris')
+
 class TedTweets(Resource):
     def get(self):
         return jsonify(tedTalks)
+
+api.add_resource(TedTweets, '/api/tedtalks')
 
 
 class GruberTweets(Resource):
     def get(self):
         return jsonify(gruber)
 
+api.add_resource(GruberTweets, '/api/gruber')
+
+
 
 class NasaTweets(Resource):
     def get(self):
         return jsonify(nasa)
 
-
-api.add_resource(SearchTweet, '/api/<string:tweet>')
-api.add_resource(SearchUser, '/api/<string:user>')
-
-api.add_resource(ElonTweets, '/api/elonmusk')
-api.add_resource(TimTweets, '/api/timferris')
-api.add_resource(TedTweets, '/api/tedtalks')
 api.add_resource(NasaTweets, '/api/nasa')
-api.add_resource(GruberTweets, '/api/gruber')
-
 
 if __name__=="__main__":
     app.run(debug=True)

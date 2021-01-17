@@ -21,31 +21,40 @@ class Search extends React.Component {
     });
   }
 
-  alternateSubmit = (e) => {
-    e.preventDefault();
-    let currentValue = this.state.value;
-    fetch(`/api/${currentValue}`)
-      .then((res) => res.json())
-      .then((data) =>
-        this.setState({
-          tweetFinder: data.statuses,
-        })
-      )
-      .catch((error) => console.log(error));
-  };
-
   handleSubmit = (e) => {
     e.preventDefault();
-    let currentValue = this.state.value;
-    fetch(`/api/${currentValue}`)
+    let currentValue = this.state.value.replace(" ", "");
+    if(currentValue > "") {
+    fetch(`/api/searchuser/${currentValue}`)
       .then((response) => response.json())
       .then((data) =>
         this.setState({
           tweets: data.statuses,
         })
       )
-      .catch((error) => console.log(error));
-  };
+      .catch((alert) => alert('Search not found'));
+    } else {
+      alert('Please enter a valid username')
+    }
+    e.target.reset()
+    };
+
+  alternateSubmit = (e) => {
+    e.preventDefault();
+    let currentValue = this.state.value;
+    if(currentValue > "") {
+    fetch(`/api/searchtweet/${currentValue}`)
+      .then((res) => res.json())
+      .then((data) =>
+        this.setState({
+          tweetFinder: data.statuses,
+        })
+      )
+      .catch((alert) => alert('Search was not found'));
+  } else {alert('Please enter a valid search')}
+  e.target.reset()
+};
+
 
   render() {
     const cardStyle = {
@@ -60,7 +69,7 @@ class Search extends React.Component {
     for (let i = 0; i < this.state.tweetFinder.length; i++) {
       tweetArray.push(
         <TwitterCard
-          key={this.state.tweetFinder[i].user.name}
+          key={[i]}
           name={this.state.tweetFinder[i].user.name}
           userName={this.state.tweetFinder[i].user.screen_name}
           tweet={this.state.tweetFinder[i].text}
@@ -76,7 +85,7 @@ class Search extends React.Component {
     for (let i = 0; i < this.state.tweets.length; i++) {
       searchTweet.push(
         <TwitterCard
-          key={this.state.tweets[i].user.name}
+          key={[i]}
           name={this.state.tweets[i].user.name}
           userName={this.state.tweets[i].user.screen_name}
           tweet={this.state.tweets[i].text}
