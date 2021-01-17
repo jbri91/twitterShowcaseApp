@@ -45,9 +45,11 @@ class Search extends React.Component {
     let currentValue = this.state.value;
     fetch(`/api/${currentValue}`)
       .then((response) => response.json())
-      .then((data) => this.setState({
-        tweets: data.statuses
-      }))
+      .then((data) =>
+        this.setState({
+          tweets: data.statuses,
+        })
+      )
       .catch((error) => console.log(error));
   };
 
@@ -76,7 +78,8 @@ class Search extends React.Component {
       );
     }
 
-    console.log(this.state.tweets)
+    console.log(this.state.tweets[0]);
+
     return (
       <div className="search">
         <div style={cardStyle}>
@@ -98,19 +101,16 @@ class Search extends React.Component {
               />
             </form>
           </div>
-          {/* {this.state.tweets[0].user.name ? (
-            <TwitterCard
-              name={this.state.tweets[0].user.name}
-              userName={this.state.tweets[0].user.screen_name}
-              tweet={this.state.tweets[0].text}
-              retweet={this.state.tweets[0].retweet_count}
-              likes={this.state.tweets[0].favorite_counts}
-              image={this.state.tweets[0].user.profile_image_url_https}
-              verified={this.state.tweets[0].user.verified}
-            />
-          ) : this.state.tweetFinder.length > 0 ? (
-            tweetArray
-          ) : null} */}
+          {this.state.tweets !== null ? (
+          <TwitterCard
+            name={this.state.tweets[0].user.name}
+            userName={this.state.tweets[0].user.screen_name}
+            tweet={this.state.tweets[0].text}
+            retweet={this.state.tweets[0].retweet_count}
+            likes={this.state.tweets[0].favorite_counts}
+            image={this.state.tweets[0].user.profile_image_url_https}
+            verified={this.state.tweets[0].user.verified}
+          />) : null}
         </div>
       </div>
     );
