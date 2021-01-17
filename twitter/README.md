@@ -2,7 +2,7 @@
 
 Click [here](https://johnnys-starwars-api.herokuapp.com/) to search for your favorite twitter accounts or tweet!
 
-![Twitter Showcase App](./twitter/src/images/TwitterHomePage.png)
+![Twitter Showcase App](./src/images/TwitterHomePage.png)
 
 # Summary
 
