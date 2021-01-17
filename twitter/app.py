@@ -25,12 +25,18 @@ tedTalks = requests.get('https://api.twitter.com/1.1/search/tweets.json', params
 gruber = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload4, headers=headers).json()
 nasa = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload5, headers=headers).json() 
 
+class SearchTweet(Resource):
+    def get(self, tweet):
+        headers = {'Authorization': token_secret, 'Accept' : 'application/json', 'Content-Type':'application/json'}
+        payload = {'q':tweet, 'result_type':'popular', 'count': 5}
+        searchTweet = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()
+        return jsonify(searchTweet)
 
 class SearchUser(Resource):
     def get(self, user):
         headers = {'Authorization': token_secret, 'Accept' : 'application/json', 'Content-Type':'application/json'}
-        payload6 = {'q':'from:' + user, 'result_type':'recent', 'count': 5}
-        searchUser = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload6, headers=headers).json()        
+        payload = {'q':'from:' + user, 'result_type':'recent', 'count': 5}
+        searchUser = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()        
         return jsonify(searchUser)
 
 class ElonTweets(Resource):
@@ -56,6 +62,7 @@ class NasaTweets(Resource):
         return jsonify(nasa)
 
 
+api.add_resource(SearchTweet, '/api/<string:tweet>')
 api.add_resource(SearchUser, '/api/<string:user>')
 
 api.add_resource(ElonTweets, '/api/elonmusk')

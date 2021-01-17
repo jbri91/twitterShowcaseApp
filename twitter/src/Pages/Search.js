@@ -23,21 +23,15 @@ class Search extends React.Component {
 
   alternateSubmit = (e) => {
     e.preventDefault();
-    let tweetArray = [];
-    if (this.state.value > "") {
-      for (let i = 0; i < 5; i++) {
-        if (
-          this.state.tweets[i].tweet
-            .toLowerCase()
-            .includes(this.state.value.toLowerCase())
-        ) {
-          tweetArray.push(this.state.tweets[i]);
-        }
+    let currentValue = this.state.value;
+    fetch(`/api/${currentValue}`)
+      .then((res) => res.json())
+      .then((data) =>
         this.setState({
-          tweetFinder: tweetArray,
-        });
-      }
-    }
+          tweetFinder: data.statuses,
+        })
+      )
+      .catch((error) => console.log(error));
   };
 
   handleSubmit = (e) => {
@@ -50,7 +44,7 @@ class Search extends React.Component {
           tweets: data.statuses,
         })
       )
-      .catch((error) => console.log(error)); 
+      .catch((error) => console.log(error));
   };
 
   render() {
@@ -62,21 +56,21 @@ class Search extends React.Component {
       alignItems: "center",
       flexDirection: "row",
     };
-    // const tweetArray = [];
-    // for (let i = 0; i < this.state.tweetFinder.length; i++) {
-    //   tweetArray.push(
-    //     <TwitterCard
-    //       key={this.state.tweetFinder[i].id}
-    //       name={this.state.tweetFinder[i].name}
-    //       userName={this.state.tweetFinder[i].userName}
-    //       tweet={this.state.tweetFinder[i].tweet}
-    //       comments={this.state.tweetFinder[i].comments}
-    //       retweets={this.state.tweetFinder[i].retweets}
-    //       likes={this.state.tweetFinder[i].likes}
-    //       image={this.state.tweetFinder[i].image}
-    //     />
-    //   );
-    // }
+    const tweetArray = [];
+    for (let i = 0; i < this.state.tweetFinder.length; i++) {
+      tweetArray.push(
+        <TwitterCard
+          key={this.state.tweetFinder[i].user.name}
+          name={this.state.tweetFinder[i].user.name}
+          userName={this.state.tweetFinder[i].user.screen_name}
+          tweet={this.state.tweetFinder[i].text}
+          retweet={this.state.tweetFinder[i].retweet_count}
+          likes={this.state.tweetFinder[i].favorite_count}
+          image={this.state.tweetFinder[i].user.profile_image_url_https}
+          verified={this.state.tweetFinder[i].user.verified}
+        />
+      );
+    }
 
     const searchTweet = [];
     for (let i = 0; i < this.state.tweets.length; i++) {
@@ -93,8 +87,6 @@ class Search extends React.Component {
         />
       );
     }
-
-    // console.log(this.state.tweets[0]);
 
     return (
       <div className="search">
@@ -117,9 +109,8 @@ class Search extends React.Component {
               />
             </form>
           </div>
-          {this.state.tweets ? (
-            searchTweet
-          ) : null}
+          {this.state.tweets ? searchTweet : null}
+          {this.state.tweetFinder ? tweetArray : null}
         </div>
       </div>
     );
