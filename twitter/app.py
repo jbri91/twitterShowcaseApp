@@ -24,6 +24,9 @@ tedTalks = requests.get('https://api.twitter.com/1.1/search/tweets.json', params
 gruber = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload4, headers=headers).json()
 nasa = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload5, headers=headers).json() 
 
+@app.route('/', methods=['GET'])
+def hello():
+    return jsonify({'Response': 'This is my Twitter Shocase App'})
 
 class SearchTweet(Resource):
     def get(self, tweet):
