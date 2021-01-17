@@ -45,7 +45,9 @@ class Search extends React.Component {
     let currentValue = this.state.value;
     fetch(`/api/${currentValue}`)
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => this.setState({
+        tweets: data.statuses
+      }))
       .catch((error) => console.log(error));
   };
 
@@ -73,36 +75,38 @@ class Search extends React.Component {
         />
       );
     }
+
+    console.log(this.state.tweets)
     return (
       <div className="search">
         <div style={cardStyle}>
           <div style={{ display: "flex" }}>
-            <form onSubmit={this.state.handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
               <UserInput
                 placeholder="Find User"
                 name="findUser"
-                handleChange={this.state.handleChange}
-                handleSubmit={this.state.handleSubmit}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
               />
             </form>
             <br />
-            <form onSubmit={this.state.alternateSubmit}>
+            <form onSubmit={this.alternateSubmit}>
               <UserInput
                 placeholder="Find Tweet"
                 name="findTweet"
-                handleChange={this.state.handleChange}
+                handleChange={this.handleChange}
               />
             </form>
           </div>
-          {/* {this.state.userSearch.name ? (
+          {/* {this.state.tweets[0].user.name ? (
             <TwitterCard
-              name={this.state.userSearch.name}
-              userName={this.state.userSearch.userName}
-              tweet={this.state.userSearch.tweet}
-              comments={this.state.userSearch.comments}
-              retweets={this.state.userSearch.retweets}
-              likes={this.state.userSearch.likes}
-              image={this.state.userSearch.image}
+              name={this.state.tweets[0].user.name}
+              userName={this.state.tweets[0].user.screen_name}
+              tweet={this.state.tweets[0].text}
+              retweet={this.state.tweets[0].retweet_count}
+              likes={this.state.tweets[0].favorite_counts}
+              image={this.state.tweets[0].user.profile_image_url_https}
+              verified={this.state.tweets[0].user.verified}
             />
           ) : this.state.tweetFinder.length > 0 ? (
             tweetArray
