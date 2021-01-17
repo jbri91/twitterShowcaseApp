@@ -14,7 +14,7 @@ payload2 = {'q':'from:tferriss', 'result_type':'recent', 'count': 20}
 payload3 = {'q':'from:TEDtalks', 'result_type':'recent', 'count': 20}
 payload4 = {'q':'from:gruber', 'result_type':'recent', 'count': 20}
 payload5 = {'q':'from:nasa', 'result_type':'recent', 'count': 20}
-payload6 = {'q':'from:adammgrant', 'result_type':'recent', 'count': 20}
+
 
 headers = {'Authorization': token_secret, 'Accept' : 'application/json', 'Content-Type':'application/json'}
 elonMusk = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()
@@ -23,13 +23,14 @@ elonMusk = requests.get('https://api.twitter.com/1.1/search/tweets.json', params
 timFerris = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload2, headers=headers).json()
 tedTalks = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload3, headers=headers).json()
 gruber = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload4, headers=headers).json()
-nasa = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload5, headers=headers).json()
-
-searchUser = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload6, headers=headers).json()
+nasa = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload5, headers=headers).json() 
 
 
 class SearchUser(Resource):
     def get(self, user):
+        headers = {'Authorization': token_secret, 'Accept' : 'application/json', 'Content-Type':'application/json'}
+        payload6 = {'q':'from:' + user, 'result_type':'recent', 'count': 20}
+        searchUser = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload6, headers=headers).json()        
         return jsonify(searchUser)
 
 class ElonTweets(Resource):
