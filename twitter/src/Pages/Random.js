@@ -121,7 +121,7 @@ class Random extends React.Component {
       justifyContent: "space-around",
       alignItems: "center",
       flexDirection: "row",
-      boxShadow: '5px 10px #888888'
+      boxShadow: '5px 10px #888888',
     };
 
     return (

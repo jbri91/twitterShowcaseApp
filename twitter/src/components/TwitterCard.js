@@ -12,7 +12,7 @@ function TwitterCard(props) {
 
   return (
     <div >
-      <Card id={props.id} style={{ width: "35rem", margin: "35px"}} className="shadow-lg p-3 mb-5 bg-white rounded" >
+      <Card id={props.id} style={{ width: "35rem", margin: "35px", cursor:'pointer'}} className="shadow-lg p-3 mb-5 bg-white rounded" >
         <Card.Body>
           <img alt='Profile' style={{ borderRadius: "50%" }} src={props.image}></img>
           <img
