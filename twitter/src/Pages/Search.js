@@ -8,7 +8,7 @@ class Search extends React.Component {
     this.state = {
       value: "",
       tweetFinder: [],
-      tweets: [],
+      tweets: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -62,23 +62,23 @@ class Search extends React.Component {
       alignItems: "center",
       flexDirection: "row",
     };
-    const tweetArray = [];
-    for (let i = 0; i < this.state.tweetFinder.length; i++) {
-      tweetArray.push(
-        <TwitterCard
-          key={this.state.tweetFinder[i].id}
-          name={this.state.tweetFinder[i].name}
-          userName={this.state.tweetFinder[i].userName}
-          tweet={this.state.tweetFinder[i].tweet}
-          comments={this.state.tweetFinder[i].comments}
-          retweets={this.state.tweetFinder[i].retweets}
-          likes={this.state.tweetFinder[i].likes}
-          image={this.state.tweetFinder[i].image}
-        />
-      );
-    }
+    // const tweetArray = [];
+    // for (let i = 0; i < this.state.tweetFinder.length; i++) {
+    //   tweetArray.push(
+    //     <TwitterCard
+    //       key={this.state.tweetFinder[i].id}
+    //       name={this.state.tweetFinder[i].name}
+    //       userName={this.state.tweetFinder[i].userName}
+    //       tweet={this.state.tweetFinder[i].tweet}
+    //       comments={this.state.tweetFinder[i].comments}
+    //       retweets={this.state.tweetFinder[i].retweets}
+    //       likes={this.state.tweetFinder[i].likes}
+    //       image={this.state.tweetFinder[i].image}
+    //     />
+    //   );
+    // }
 
-    console.log(this.state.tweets[0]);
+    // console.log(this.state.tweets[0]);
 
     return (
       <div className="search">
@@ -101,13 +101,13 @@ class Search extends React.Component {
               />
             </form>
           </div>
-          {this.state.tweets !== null ? (
+          {this.state.tweets ? (
           <TwitterCard
             name={this.state.tweets[0].user.name}
             userName={this.state.tweets[0].user.screen_name}
             tweet={this.state.tweets[0].text}
             retweet={this.state.tweets[0].retweet_count}
-            likes={this.state.tweets[0].favorite_counts}
+            likes={this.state.tweets[0].favorite_count}
             image={this.state.tweets[0].user.profile_image_url_https}
             verified={this.state.tweets[0].user.verified}
           />) : null}
