@@ -5,11 +5,8 @@ api = Api(app)
 import requests
 import json
 from config import token_secret
-<<<<<<< HEAD
-=======
 
 
->>>>>>> search
 
 
 payload = {'q':'from:elonmusk', 'result_type':'recent', 'count': 20}
@@ -20,10 +17,6 @@ payload5 = {'q':'from:nasa', 'result_type':'recent', 'count': 20}
 
 
 headers = {'Authorization': token_secret, 'Accept' : 'application/json', 'Content-Type':'application/json'}
-<<<<<<< HEAD
-=======
-
->>>>>>> search
 
 elonMusk = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload, headers=headers).json()
 timFerris = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload2, headers=headers).json()
