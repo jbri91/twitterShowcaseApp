@@ -17,9 +17,7 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.alternateSubmit = this.alternateSubmit.bind(this);
-    
   }
-
 
   handleChange(e) {
     this.setState({
@@ -55,37 +53,14 @@ class App extends React.Component {
     }
   };
 
-
   render() {
-   
-
     return (
       <BrowserRouter>
         <Navigationbar />
 
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route
-            path="/random"
-            render={() => (
-              <Random           
-
-
-
-                // name={this.state.tweets[0].statuses[1].user.name}
-                // userName={this.state.tweets[0].statuses[1].user.screen_name}
-                // verified={this.state.tweets[0].statuses[1].user.verified}
-                // image={
-                //   this.state.tweets[0].statuses[1].user.profile_image_url_https
-                // }
-                // url={this.state.tweets[0].statuses[1].user.url}
-                // id={this.state.tweets[0].statuses[1].user.id}
-                // retweet={this.state.tweets[0].statuses[1].retweet_count}
-                // tweet={this.state.tweets[0].statuses[1].text}
-                // likes={this.state.tweets[0].statuses[1].favorite_count}
-              />
-            )}
-          />
+          <Route path="/random" render={() => <Random />} />
           <Route
             path="/search"
             render={() => (
