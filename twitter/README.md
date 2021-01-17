@@ -1,4 +1,4 @@
-# Twitter Showcase App
+# Twitter Showcase App Created with React, Flask RESTful API, Bootstrap 4
 
 Click [here](https://johnnys-starwars-api.herokuapp.com/) to search for your favorite twitter accounts or tweet!
 
