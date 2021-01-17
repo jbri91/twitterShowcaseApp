@@ -1,6 +1,5 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-// import CardImage from "../Images/TwitterCardImage.jpg";
 import HeartImage from "../Images/Heart.png";
 import Retweet from "../Images/Retweet.png";
 import Comment from "../Images/Comment.png";
@@ -9,10 +8,9 @@ import Settings from "../Images/Settings.png";
 import BlueCheck from "../Images/BlueCheck.png";
 
 function TwitterCard(props) {
-
   return (
     <div >
-      <Card id={props.id} style={{ width: "35rem", margin: "35px"}} className="shadow-lg p-3 mb-5 bg-white rounded" >
+      <Card id={props.id} style={{ width: "35rem", margin: "35px", cursor:'pointer'}} className="shadow-lg p-3 mb-5 bg-white rounded" >
         <Card.Body>
           <img alt='Profile' style={{ borderRadius: "50%" }} src={props.image}></img>
           <img
