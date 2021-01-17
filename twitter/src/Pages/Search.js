@@ -25,7 +25,7 @@ class Search extends React.Component {
     e.preventDefault();
     let tweetArray = [];
     if (this.state.value > "") {
-      for (let i = 0; i < this.state.tweets.length; i++) {
+      for (let i = 0; i < 5; i++) {
         if (
           this.state.tweets[i].tweet
             .toLowerCase()
@@ -50,7 +50,7 @@ class Search extends React.Component {
           tweets: data.statuses,
         })
       )
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error)); 
   };
 
   render() {
@@ -78,6 +78,22 @@ class Search extends React.Component {
     //   );
     // }
 
+    const searchTweet = [];
+    for (let i = 0; i < this.state.tweets.length; i++) {
+      searchTweet.push(
+        <TwitterCard
+          key={this.state.tweets[i].user.name}
+          name={this.state.tweets[i].user.name}
+          userName={this.state.tweets[i].user.screen_name}
+          tweet={this.state.tweets[i].text}
+          retweet={this.state.tweets[i].retweet_count}
+          likes={this.state.tweets[i].favorite_count}
+          image={this.state.tweets[i].user.profile_image_url_https}
+          verified={this.state.tweets[i].user.verified}
+        />
+      );
+    }
+
     // console.log(this.state.tweets[0]);
 
     return (
@@ -86,7 +102,7 @@ class Search extends React.Component {
           <div style={{ display: "flex" }}>
             <form onSubmit={this.handleSubmit}>
               <UserInput
-                placeholder="Find User"
+                placeholder="Find User By Username"
                 name="findUser"
                 handleChange={this.handleChange}
                 handleSubmit={this.handleSubmit}
@@ -102,15 +118,8 @@ class Search extends React.Component {
             </form>
           </div>
           {this.state.tweets ? (
-          <TwitterCard
-            name={this.state.tweets[0].user.name}
-            userName={this.state.tweets[0].user.screen_name}
-            tweet={this.state.tweets[0].text}
-            retweet={this.state.tweets[0].retweet_count}
-            likes={this.state.tweets[0].favorite_count}
-            image={this.state.tweets[0].user.profile_image_url_https}
-            verified={this.state.tweets[0].user.verified}
-          />) : null}
+            searchTweet
+          ) : null}
         </div>
       </div>
     );
