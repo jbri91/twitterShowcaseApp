@@ -26,7 +26,7 @@ nasa = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=pay
 
 @app.route('/', methods=['GET'])
 def hello():
-    return jsonify({'Response': 'This is my Twitter Shocase App'})
+    return jsonify({'Response': 'This is my Twitter Showcase App'})
 
 class SearchTweet(Resource):
     def get(self, tweet):
