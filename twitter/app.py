@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from flask_restful import Api, Resource
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 api = Api(app)
 import requests
 import json
@@ -24,9 +24,16 @@ tedTalks = requests.get('https://api.twitter.com/1.1/search/tweets.json', params
 gruber = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload4, headers=headers).json()
 nasa = requests.get('https://api.twitter.com/1.1/search/tweets.json', params=payload5, headers=headers).json() 
 
-@app.route('/', methods=['GET'])
-def hello():
-    return jsonify({'Response': 'This is my Twitter Showcase App'})
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
+    
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
+
+
 
 class SearchTweet(Resource):
     def get(self, tweet):
@@ -80,6 +87,8 @@ class NasaTweets(Resource):
         return jsonify(nasa)
 
 api.add_resource(NasaTweets, '/api/nasa')
+
+
 
 if __name__=="__main__":
     app.run(debug=True)

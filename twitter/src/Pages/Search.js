@@ -40,7 +40,7 @@ class Search extends React.Component {
     };
 
   alternateSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
     let currentValue = this.state.value;
     if(currentValue > "") {
     fetch(`/api/searchtweet/${currentValue}`)
@@ -51,7 +51,7 @@ class Search extends React.Component {
         })
       )
       .catch((err) => console.log(err));
-  } else {alert('Please enter a valid search')}
+  } else {alert('Please enter a valid search')}  
   e.target.reset()
 };
 
@@ -96,6 +96,7 @@ class Search extends React.Component {
         />
       );
     }
+  
 
     return (
       <div className="search">
