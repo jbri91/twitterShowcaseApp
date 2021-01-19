@@ -119,7 +119,7 @@ class Random extends React.Component {
       flexDirection: "row",
       boxShadow: "5px 10px #888888",
     };
-console.log(this.state.elonTweet)
+
     return (
       <div onClick={this.handleClick} className="random">
         <div style={cardStyle}>
